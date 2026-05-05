@@ -920,6 +920,9 @@
     .footer-links { display: flex; gap: 24px; }
     .footer-links a { font-size: .85rem; color: rgba(255,255,255,.3); text-decoration: none; }
     .footer-links a:hover { color: rgba(255,255,255,.6); }
+    .footer-legal { display: flex; gap: 16px; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.06); }
+    .footer-legal a { font-size: .8rem; color: rgba(255,255,255,.25); text-decoration: none; transition: color .2s; }
+    .footer-legal a:hover { color: rgba(255,255,255,.5); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -934,6 +937,7 @@
       .form-row { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
       .stats-row { gap: 24px; }
+      .footer-legal { flex-direction: column; gap: 8px; }
     }
 
     /* SVG icons inline */
@@ -946,7 +950,7 @@
 <nav>
   <div class="container">
     <div class="nav-inner">
-      <a href="#hero" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="data:image/png;base64,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" alt="Dialopt Logo" style="height:36px;width:auto;"></a>
+      <a href="#hero" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCI" width="30" height="30" alt="Dialopt Logo" /></a>
       <ul class="nav-links" style="list-style:none;">
         <li><a href="#problem">Problem</a></li>
         <li><a href="#solution">Lösung</a></li>
@@ -1001,128 +1005,150 @@
         </div>
 
         <div class="cta-row fade-up delay-300">
-          <a href="#contact" class="btn-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-            Jetzt Demo buchen
-          </a>
-          <a href="#problem" class="btn-outline">
-            Mehr erfahren
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="#contact" class="btn-primary">Demo buchen →</a>
+          <a href="#contact" class="btn-outline">Mehr erfahren</a>
         </div>
 
         <div class="stats-row fade-up delay-400">
           <div class="stat-item">
-            <div class="stat-value gradient-text-blue">24/7</div>
-            <div class="stat-label">Erreichbarkeit</div>
+            <div class="stat-value">99.9%</div>
+            <div class="stat-label">Verfügbarkeit</div>
           </div>
           <div class="stat-item">
-            <div class="stat-value gradient-text-blue">&lt; 48h</div>
-            <div class="stat-label">Setup-Zeit</div>
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Einsatzbereitschaft</div>
           </div>
           <div class="stat-item">
-            <div class="stat-value gradient-text-blue">100%</div>
-            <div class="stat-label">Auf Deutsch</div>
+            <div class="stat-value">< 2s</div>
+            <div class="stat-label">Antwortzeit</div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="hero-bottom-fade"></div>
-  <div class="hero-scroll"><div class="hero-scroll-line"></div></div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+    </div>
+    <div class="hero-bottom-fade"></div>
+  </div>
 </section>
 
 <!-- PROBLEM -->
-<section id="problem" class="section-darker">
-  <div class="container" style="padding-top:96px;padding-bottom:96px;">
+<section id="problem" class="section-dark">
+  <div class="container">
     <div class="section-header">
-      <span class="section-label section-label-dark">Das Problem</span>
-      <h2 class="section-h2" style="color:#fff;">Ihr Telefon kostet Sie <span class="gradient-text">täglich Umsatz</span></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.5);">Traditionelle Betriebe kämpfen täglich mit denselben Herausforderungen — und verlieren dabei Kunden, Zeit und Geld.</p>
+      <div class="section-label section-label-dark">
+        Herausforderungen
+      </div>
+      <h2 class="section-h2">Das Problem</h2>
+      <p class="section-sub">
+        Viele Mittelständler verlieren wertvolle Kundeninteraktionen durch unbeantwortete Anrufe.
+      </p>
     </div>
+
     <div class="grid-3">
-      <!-- Card 1 -->
-      <div class="glass-card problem-card fade-up delay-100">
-        <div class="problem-icon" style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.68 13.31a16 16 0 003.41 2.6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7 2 2 0 012 2v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07"/><path d="M6.09 7.91A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18A2 2 0 012 0h3a2 2 0 012 1.72"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-        </div>
-        <h3 style="font-family:'Sora',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:12px;">Verpasste Anrufe</h3>
-        <p style="font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.7;">Täglich gehen wertvolle Kundenanfragen verloren, weil niemand ans Telefon geht — besonders während Stoßzeiten, Mittagspausen oder nach Feierabend.</p>
-        <div class="problem-divider" style="border-top:1px solid rgba(255,255,255,.07);margin-top:24px;padding-top:20px;">
-          <div class="problem-stat-value" style="color:#ef4444;">62%</div>
-          <div class="problem-stat-label">der Anrufer legen auf, wenn niemand antwortet</div>
-        </div>
+      <div class="glass-card problem-card">
+        <div class="problem-icon" style="background: rgba(0,87,184,.1);">📞</div>
+        <div class="problem-stat-value">47%</div>
+        <div class="problem-stat-label">aller geschäftlichen Anrufe gehen täglich verloren</div>
+        <hr class="problem-divider" />
+        <p style="font-size: .8rem; color: rgba(255,255,255,.4); margin-top: 20px;">
+          Ohne Anrufbeantworter oder Sekretariat – pure Ineffizienz.
+        </p>
       </div>
-      <!-- Card 2 -->
-      <div class="glass-card problem-card fade-up delay-200">
-        <div class="problem-icon" style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h3 style="font-family:'Sora',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:12px;">Kein Nachtdienst</h3>
-        <p style="font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.7;">Kunden rufen abends und am Wochenende an. Ohne Erreichbarkeit außerhalb der Öffnungszeiten verlieren Sie Aufträge an die Konkurrenz.</p>
-        <div style="border-top:1px solid rgba(255,255,255,.07);margin-top:24px;padding-top:20px;">
-          <div class="problem-stat-value" style="color:#f59e0b;">40%</div>
-          <div class="problem-stat-label">der Terminanfragen kommen außerhalb der Öffnungszeiten</div>
-        </div>
+
+      <div class="glass-card problem-card">
+        <div class="problem-icon" style="background: rgba(26,111,212,.1);">💼</div>
+        <div class="problem-stat-value">€28K</div>
+        <div class="problem-stat-label">durchschnittliche jährliche Kosten für einen Mitarbeiter</div>
+        <hr class="problem-divider" />
+        <p style="font-size: .8rem; color: rgba(255,255,255,.4); margin-top: 20px;">
+          Manuell besetzte Telefonlinien sind teuer und nicht immer zuverlässig.
+        </p>
       </div>
-      <!-- Card 3 -->
-      <div class="glass-card problem-card fade-up delay-300">
-        <div class="problem-icon" style="background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <h3 style="font-family:'Sora',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:12px;">Mitarbeiter überlastet</h3>
-        <p style="font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.7;">Ihr Team verbringt wertvolle Arbeitszeit mit Routineanfragen am Telefon, statt sich auf das Wesentliche zu konzentrieren.</p>
-        <div style="border-top:1px solid rgba(255,255,255,.07);margin-top:24px;padding-top:20px;">
-          <div class="problem-stat-value" style="color:#a78bfa;">3h</div>
-          <div class="problem-stat-label">täglich verliert ein Mitarbeiter durch Routineanrufe</div>
-        </div>
+
+      <div class="glass-card problem-card">
+        <div class="problem-icon" style="background: rgba(96,165,250,.1);">⏰</div>
+        <div class="problem-stat-value">3 Min</div>
+        <div class="problem-stat-label">durchschnittliche Wartezeit in der Warteschleife</div>
+        <hr class="problem-divider" />
+        <p style="font-size: .8rem; color: rgba(255,255,255,.4); margin-top: 20px;">
+          Frustrierte Kunden hängen ein – Sie verlieren Geschäfte.
+        </p>
       </div>
-    </div>
-    <div style="margin-top:56px;text-align:center;">
-      <p style="font-size:.875rem;color:rgba(255,255,255,.35);">Kennen Sie diese Probleme? <a href="#solution" style="color:#60a5fa;font-weight:600;text-decoration:underline;text-underline-offset:2px;">Dialopt löst sie alle.</a></p>
     </div>
   </div>
 </section>
 
 <!-- SOLUTION -->
-<section id="solution" class="section-light" style="position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;opacity:.025;background-image:radial-gradient(circle at 1px 1px,#0057B8 1px,transparent 0);background-size:40px 40px;pointer-events:none;"></div>
-  <div style="position:absolute;top:0;right:0;width:384px;height:384px;opacity:.1;pointer-events:none;background:radial-gradient(ellipse,rgba(0,87,184,.8) 0%,transparent 70%);filter:blur(60px);"></div>
-  <div class="container" style="padding-top:96px;padding-bottom:96px;position:relative;z-index:1;">
+<section id="solution" class="section-light">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Unser Angebot</div>
+      <h2 class="section-h2">Die perfekte Lösung: Dialopt</h2>
+      <p class="section-sub">
+        Eine KI-gestützte Telefonanlage, die Ihre Anrufe beantwortet, Kunden berät und Termine bucht — in natürlichem Deutsch.
+      </p>
+    </div>
+
     <div class="solution-grid">
-      <div class="fade-up">
-        <span class="section-label">Die Lösung</span>
-        <h2 class="section-h2" style="color:var(--text-dark);">Ihr KI-Mitarbeiter, <span class="gradient-text-blue">der nie schläft</span></h2>
-        <p style="font-size:1.05rem;color:var(--text-mid);line-height:1.7;margin-bottom:32px;">Dialopt übernimmt alle eingehenden Anrufe, beantwortet häufige Fragen und bucht Termine — vollautomatisch, in natürlichem Deutsch und ohne dass Ihr Team eingreifen muss.</p>
+      <div>
         <ul class="checklist">
-          <li><div class="check-icon"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#0057B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Keine Wartezeiten für Ihre Kunden</li>
-          <li><div class="check-icon"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#0057B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Vollständige Gesprächsprotokolle</li>
-          <li><div class="check-icon"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#0057B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>DSGVO-konform und Made in Germany</li>
-          <li><div class="check-icon"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#0057B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Integration in bestehende Kalender</li>
+          <li>
+            <div class="check-icon">✓</div>
+            <div>Keine entgangenen Anrufe – jeder wird beantwortet</div>
+          </li>
+          <li>
+            <div class="check-icon">✓</div>
+            <div>Automatische Terminbuchungen ins Kalender</div>
+          </li>
+          <li>
+            <div class="check-icon">✓</div>
+            <div>Natürliche Sprachinteraktion auf Deutsch</div>
+          </li>
+          <li>
+            <div class="check-icon">✓</div>
+            <div>Skalierbar – ohne zusätzliches Personal</div>
+          </li>
+          <li>
+            <div class="check-icon">✓</div>
+            <div>24/7 Verfügbarkeit – auch an Wochenenden</div>
+          </li>
+          <li>
+            <div class="check-icon">✓</div>
+            <div>Kostenersparnis: -60% vs. Mitarbeiter</div>
+          </li>
         </ul>
-        <a href="#contact" class="btn-primary">Jetzt kostenlos testen</a>
       </div>
-      <div class="feature-grid fade-up delay-100">
+
+      <div class="feature-grid">
         <div class="light-card feature-card">
-          <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <h3 style="font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:var(--text-dark);margin-bottom:8px;">24/7 Erreichbarkeit</h3>
-          <p style="font-size:.83rem;color:#64748b;line-height:1.6;">Ihr KI-Sprachagent nimmt jeden Anruf entgegen — nachts, am Wochenende und an Feiertagen.</p>
+          <div class="feature-icon" style="background: rgba(0,87,184,.08); color: var(--blue);">🎯</div>
+          <h4 style="font-weight: 600; color: var(--text-dark); margin-bottom: 8px;">Intelligente Anrufweiterleitung</h4>
+          <p style="font-size: .85rem; color: var(--text-mid);">
+            Anrufer werden automatisch an das richtige Abteilungsteam weitergeleitet.
+          </p>
         </div>
         <div class="light-card feature-card">
-          <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg></div>
-          <h3 style="font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:var(--text-dark);margin-bottom:8px;">Automatische Terminbuchung</h3>
-          <p style="font-size:.83rem;color:#64748b;line-height:1.6;">Dialopt bucht Termine direkt in Ihren Kalender, fragt nach Verfügbarkeiten und bestätigt automatisch.</p>
+          <div class="feature-icon" style="background: rgba(0,87,184,.08); color: var(--blue);">📅</div>
+          <h4 style="font-weight: 600; color: var(--text-dark); margin-bottom: 8px;">Automatische Terminverwaltung</h4>
+          <p style="font-size: .85rem; color: var(--text-mid);">
+            Dialopt bucht Termine direkt in Ihre Kalender – keine manuellen Einträge nötig.
+          </p>
         </div>
         <div class="light-card feature-card">
-          <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
-          <h3 style="font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:var(--text-dark);margin-bottom:8px;">Natürliches Deutsch</h3>
-          <p style="font-size:.83rem;color:#64748b;line-height:1.6;">Fließendes Deutsch mit natürlichem Klang — kein roboterhaftes Voicemenü, sondern echte Konversation.</p>
+          <div class="feature-icon" style="background: rgba(0,87,184,.08); color: var(--blue);">🌐</div>
+          <h4 style="font-weight: 600; color: var(--text-dark); margin-bottom: 8px;">Mehrsprachig trainierbar</h4>
+          <p style="font-size: .85rem; color: var(--text-mid);">
+            Dialopt spricht fließend Deutsch – weitere Sprachen auf Anfrage verfügbar.
+          </p>
         </div>
         <div class="light-card feature-card">
-          <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h3 style="font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:var(--text-dark);margin-bottom:8px;">Sofort einsatzbereit</h3>
-          <p style="font-size:.83rem;color:#64748b;line-height:1.6;">Keine IT-Integration nötig. Dialopt ist innerhalb von 48 Stunden eingerichtet und aktiv.</p>
+          <div class="feature-icon" style="background: rgba(0,87,184,.08); color: var(--blue);">🔒</div>
+          <h4 style="font-weight: 600; color: var(--text-dark); margin-bottom: 8px;">DSGVO-konform</h4>
+          <p style="font-size: .85rem; color: var(--text-mid);">
+            Alle Daten werden sicher auf Servern in Deutschland gehostet.
+          </p>
         </div>
       </div>
     </div>
@@ -1131,398 +1157,499 @@
 
 <!-- STATS BAND -->
 <section id="stats">
-  <div class="container" style="position:relative;z-index:1;">
+  <div class="container">
     <div class="stats-band-grid">
-      <div class="stats-band-item fade-up"><div class="stats-band-value">98%</div><div class="stats-band-label">Kundenzufriedenheit</div><div class="stats-band-sub">basierend auf 500+ Bewertungen</div></div>
-      <div class="stats-band-item fade-up delay-100"><div class="stats-band-value">&lt; 48h</div><div class="stats-band-label">Einrichtungszeit</div><div class="stats-band-sub">von Anfrage bis Go-Live</div></div>
-      <div class="stats-band-item fade-up delay-200"><div class="stats-band-value">3.200+</div><div class="stats-band-label">Betriebe vertrauen uns</div><div class="stats-band-sub">in ganz Deutschland</div></div>
-      <div class="stats-band-item fade-up delay-300"><div class="stats-band-value">24/7</div><div class="stats-band-label">Verfügbarkeit</div><div class="stats-band-sub">365 Tage im Jahr</div></div>
+      <div class="stats-band-item">
+        <div class="stats-band-value">5+</div>
+        <div class="stats-band-label">Jahre Entwicklung</div>
+        <div class="stats-band-sub">KI-Technologie</div>
+      </div>
+      <div class="stats-band-item">
+        <div class="stats-band-value">100+</div>
+        <div class="stats-band-label">Erfolgreiche Unternehmen</div>
+        <div class="stats-band-sub">nutzen Dialopt</div>
+      </div>
+      <div class="stats-band-item">
+        <div class="stats-band-value">500K+</div>
+        <div class="stats-band-label">Anrufe pro Monat</div>
+        <div class="stats-band-sub">zuverlässig bearbeitet</div>
+      </div>
+      <div class="stats-band-item">
+        <div class="stats-band-value">98%</div>
+        <div class="stats-band-label">Kundenzufriedenheit</div>
+        <div class="stats-band-sub">durchschnittliche Bewertung</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
 <section id="how-it-works" class="section-dark">
-  <div class="container" style="padding-top:96px;padding-bottom:96px;">
+  <div class="container">
     <div class="section-header">
-      <span class="section-label section-label-dark">So funktioniert's</span>
-      <h2 class="section-h2" style="color:#fff;">In 3 Schritten <span class="gradient-text">startklar</span></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.5);">Kein IT-Fachwissen nötig. Dialopt ist so einfach einzurichten wie ein Anrufbeantworter — nur viel intelligenter.</p>
+      <div class="section-label section-label-dark">Der Prozess</div>
+      <h2 class="section-h2">So funktioniert Dialopt</h2>
+      <p class="section-sub">
+        In drei einfachen Schritten zur automatisierten Anrufbehandlung.
+      </p>
     </div>
+
     <div class="steps-grid">
       <div class="steps-connector"></div>
-      <div class="step fade-up delay-150">
+
+      <div class="step">
         <div class="step-icon-wrap">
-          <div class="step-icon-box">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 19.07l1.41-1.41M4.93 4.93l1.41 1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
-          </div>
+          <div class="step-icon-box">📞</div>
           <div class="step-badge">1</div>
         </div>
-        <h3 style="font-family:'Sora',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:12px;">Einrichten</h3>
-        <p style="font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.7;max-width:280px;">Wir richten Dialopt gemeinsam mit Ihnen ein. Sie teilen uns Ihre Öffnungszeiten, häufige Fragen und Terminregeln mit — der Rest ist unsere Aufgabe.</p>
-        <div class="step-detail" style="color:#60a5fa;border:1px solid rgba(96,165,250,.3);"><div class="step-detail-dot" style="background:#60a5fa;"></div>Dauer: 1–2 Werktage</div>
+        <h4 style="font-family: 'Sora', sans-serif; font-weight: 700; color: #fff; margin-bottom: 12px;">
+          Anruf eingehend
+        </h4>
+        <p style="font-size: .9rem; color: rgba(255,255,255,.6); margin-bottom: 12px;">
+          Der Anrufer wird direkt mit Dialopt verbunden.
+        </p>
+        <div class="step-detail">
+          <div class="step-detail-dot" style="background: #60a5fa;"></div>
+          <span style="color: #60a5fa;">Echtzeit-Verbindung</span>
+        </div>
       </div>
-      <div class="step fade-up delay-300">
+
+      <div class="step">
         <div class="step-icon-wrap">
-          <div class="step-icon-box">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
+          <div class="step-icon-box">🤖</div>
           <div class="step-badge">2</div>
         </div>
-        <h3 style="font-family:'Sora',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:12px;">Aktivieren</h3>
-        <p style="font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.7;max-width:280px;">Ihre Telefonnummer wird auf Dialopt weitergeleitet. Der KI-Agent ist sofort aktiv und nimmt alle Anrufe in Ihrem Namen entgegen.</p>
-        <div class="step-detail" style="color:#34d399;border:1px solid rgba(52,211,153,.3);"><div class="step-detail-dot" style="background:#34d399;"></div>Weiterleitung in Minuten</div>
+        <h4 style="font-family: 'Sora', sans-serif; font-weight: 700; color: #fff; margin-bottom: 12px;">
+          KI-Gespräch
+        </h4>
+        <p style="font-size: .9rem; color: rgba(255,255,255,.6); margin-bottom: 12px;">
+          Dialopt führt ein natürliches Gespräch und versteht Anliegen.
+        </p>
+        <div class="step-detail">
+          <div class="step-detail-dot" style="background: #60a5fa;"></div>
+          <span style="color: #60a5fa;">Intelligent & verständig</span>
+        </div>
       </div>
-      <div class="step fade-up delay-400">
+
+      <div class="step">
         <div class="step-icon-wrap">
-          <div class="step-icon-box">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          </div>
+          <div class="step-icon-box">✅</div>
           <div class="step-badge">3</div>
         </div>
-        <h3 style="font-family:'Sora',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:12px;">Fertig</h3>
-        <p style="font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.7;max-width:280px;">Dialopt arbeitet rund um die Uhr für Sie. Sie erhalten tägliche Zusammenfassungen und können jederzeit Einstellungen anpassen.</p>
-        <div class="step-detail" style="color:#a78bfa;border:1px solid rgba(167,139,250,.3);"><div class="step-detail-dot" style="background:#a78bfa;"></div>Sofort einsatzbereit</div>
+        <h4 style="font-family: 'Sora', sans-serif; font-weight: 700; color: #fff; margin-bottom: 12px;">
+          Aktion & Termin
+        </h4>
+        <p style="font-size: .9rem; color: rgba(255,255,255,.6); margin-bottom: 12px;">
+          Termine werden automatisch gebucht oder Infos weitergeleitet.
+        </p>
+        <div class="step-detail">
+          <div class="step-detail-dot" style="background: #60a5fa;"></div>
+          <span style="color: #60a5fa;">Automatisiert & effizient</span>
+        </div>
       </div>
-    </div>
-    <div style="margin-top:64px;text-align:center;" class="fade-up delay-400">
-      <a href="#contact" class="btn-primary">Jetzt starten</a>
     </div>
   </div>
 </section>
 
 <!-- USE CASES -->
 <section id="use-cases" class="section-light-gray">
-  <div class="container" style="padding-top:96px;padding-bottom:96px;">
+  <div class="container">
     <div class="section-header">
-      <span class="section-label">Anwendungsfälle</span>
-      <h2 class="section-h2" style="color:var(--text-dark);">Für Ihren <span class="gradient-text-blue">Betrieb gemacht</span></h2>
-      <p class="section-sub" style="color:var(--text-light);">Dialopt passt sich Ihrer Branche an — mit branchenspezifischen Gesprächsflüssen und Fachvokabular.</p>
+      <div class="section-label">Anwendungsfälle</div>
+      <h2 class="section-h2">Dialopt für Ihr Unternehmen</h2>
+      <p class="section-sub">
+        Egal welche Branche – Dialopt ist universell einsetzbar.
+      </p>
     </div>
+
     <div class="grid-3">
-      <!-- Restaurant -->
-      <article class="light-card use-case-card fade-up delay-100">
+      <div class="light-card use-case-card">
         <div class="use-case-img">
-          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663607216109/CLdVXQ65RSw3kMGnPkoxWa/dialopt-restaurant-TQWscUdXk6WFXknpUZRYSE.webp" alt="Restaurant" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=300&fit=crop" alt="Zahnarztpraxis" />
           <div class="use-case-overlay"></div>
-          <span class="use-case-tag" style="background:#f59e0b;">Gastronomie</span>
+          <div class="use-case-tag" style="background: rgba(0,87,184,.9);">Zahnarzt</div>
         </div>
         <div class="use-case-body">
-          <h3 style="font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Restaurants</h3>
-          <p style="font-size:.85rem;color:#64748b;">Tischreservierungen rund um die Uhr</p>
+          <h4 style="font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Zahnarztpraxis</h4>
+          <p style="font-size: .9rem; color: var(--text-light); margin-bottom: 12px;">
+            Automatische Terminvergabe ohne Sekretärin. Dialopt beantwortet alle Standard-Anfragen.
+          </p>
           <ul class="use-case-benefits">
-            <li><div class="benefit-check" style="background:rgba(245,158,11,.12);"><svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L2.8 5L7 1" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Tischreservierungen automatisch entgegennehmen</li>
-            <li><div class="benefit-check" style="background:rgba(245,158,11,.12);"><svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L2.8 5L7 1" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Öffnungszeiten und Speisekarte abrufen</li>
-            <li><div class="benefit-check" style="background:rgba(245,158,11,.12);"><svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L2.8 5L7 1" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Sonderwünsche und Allergien erfassen</li>
-            <li><div class="benefit-check" style="background:rgba(245,158,11,.12);"><svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L2.8 5L7 1" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Stornierungen und Umbuchungen verwalten</li>
+            <li>
+              <div class="benefit-check" style="background: rgba(0,87,184,.1); color: var(--blue);">✓</div>
+              <span>Keine verpassten Termine</span>
+            </li>
+            <li>
+              <div class="benefit-check" style="background: rgba(0,87,184,.1); color: var(--blue);">✓</div>
+              <span>Terminbuffertage reduzieren</span>
+            </li>
+            <li>
+              <div class="benefit-check" style="background: rgba(0,87,184,.1); color: var(--blue);">✓</div>
+              <span>Kostenersparnis 50%+</span>
+            </li>
           </ul>
         </div>
-      </article>
-      <!-- Handwerk -->
-      <article class="light-card use-case-card fade-up delay-200">
+      </div>
+
+      <div class="light-card use-case-card">
         <div class="use-case-img">
-          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663607216109/CLdVXQ65RSw3kMGnPkoxWa/dialopt-handwerk-eBtxd7R3oUz9iQGbLvMGmR.webp" alt="Handwerk" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop" alt="Salon" />
           <div class="use-case-overlay"></div>
-          <span class="use-case-tag" style="background:#0057B8;">Handwerk</span>
+          <div class="use-case-tag" style="background: rgba(0,87,184,.9);">Salon & Wellness</div>
         </div>
         <div class="use-case-body">
-          <h3 style="font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Handwerksbetriebe</h3>
-          <p style="font-size:.85rem;color:#64748b;">Auftragsannahme ohne Unterbrechung</p>
+          <h4 style="font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Friseursalon</h4>
+          <p style="font-size: .9rem; color: var(--text-light); margin-bottom: 12px;">
+            Alle Anrufe werden beantwortet – auch während des Einsatzes. Dialopt kümmert sich um Buchungen.
+          </p>
           <ul class="use-case-benefits">
-            <li><div class="benefit-check" style="background:rgba(0,87,184,.1);"><svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L2.8 5L7 1" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Auftragsanfragen rund um die Uhr annehmen</li>
-            <li><div class="benefit-check" style="background:rgba(0,87,184,.1);"><svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L2.8 5L7 1" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Kostenvoranschlag-Anfragen weiterleiten</li>
-            <li><div class="benefit-check" style="background:rgba(0,87,184,.1);"><svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L2.8 5L7 1" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Notdienst-Anrufe priorisieren</li>
-            <li><div class="benefit-check" style="background:rgba(0,87,184,.1);"><svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L2.8 5L7 1" stroke="#0057B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Kundendaten strukturiert erfassen</li>
+            <li>
+              <div class="benefit-check" style="background: rgba(0,87,184,.1); color: var(--blue);">✓</div>
+              <span>24/7 Anrufbehandlung</span>
+            </li>
+            <li>
+              <div class="benefit-check" style="background: rgba(0,87,184,.1); color: var(--blue);">✓</div>
+              <span>Keine Neukundenausfälle</span>
+            </li>
+            <li>
+              <div class="benefit-check" style="background: rgba(0,87,184,.1); color: var(--blue);">✓</div>
+              <span>Einfache Integration</span>
+            </li>
           </ul>
         </div>
-      </article>
-      <!-- Arzt -->
-      <article class="light-card use-case-card fade-up delay-300">
+      </div>
+
+      <div class="light-card use-case-card">
         <div class="use-case-img">
-          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663607216109/CLdVXQ65RSw3kMGnPkoxWa/dialopt-arztpraxis-cbyNVh9zw5R7hnGAiSfxzn.webp" alt="Arztpraxis" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=300&fit=crop" alt="Consulting" />
           <div class="use-case-overlay"></div>
-          <span class="use-case-tag" style="background:#10b981;">Medizin</span>
+          <div class="use-case-tag" style="background: rgba(0,87,184,.9);">Beratung</div>
         </div>
         <div class="use-case-body">
-          <h3 style="font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Arztpraxen</h3>
-          <p style="font-size:.85rem;color:#64748b;">Terminmanagement ohne Warteschleife</p>
+          <h4 style="font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Consulting & Agenturen</h4>
+          <p style="font-size: .9rem; color: var(--text-light); margin-bottom: 12px;">
+            Qualifizierung von Anrufen, automatische Weiterleitung an Experten, präzise Terminbuchung.
+          </p>
           <ul class="use-case-benefits">
-            <li><div class="benefit-check" style="background:rgba(16,185,129,.1);"><svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L2.8 5L7 1" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Terminvereinbarungen automatisch buchen</li>
-            <li><div class="benefit-check" style="background:rgba(16,185,129,.1);"><svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L2.8 5L7 1" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Rezeptanfragen entgegennehmen</li>
-            <li><div class="benefit-check" style="background:rgba(16,185,129,.1);"><svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L2.8 5L7 1" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Überweisungen und Befunde koordinieren</li>
-            <li><div class="benefit-check" style="background:rgba(16,185,129,.1);"><svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L2.8 5L7 1" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Dringende Fälle sofort weiterleiten</li>
+            <li>
+              <div class="benefit-check" style="background: rgba(0,87,184,.1); color: var(--blue);">✓</div>
+              <span>Intelligente Anruffilterung</span>
+            </li>
+            <li>
+              <div class="benefit-check" style="background: rgba(0,87,184,.1); color: var(--blue);">✓</div>
+              <span>Lead-Qualifizierung</span>
+            </li>
+            <li>
+              <div class="benefit-check" style="background: rgba(0,87,184,.1); color: var(--blue);">✓</div>
+              <span>Automatische Datenerfassung</span>
+            </li>
           </ul>
         </div>
-      </article>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
 <section id="pricing" class="section-dark">
-  <div class="container" style="padding-top:96px;padding-bottom:96px;">
+  <div class="container">
     <div class="section-header">
-      <span class="section-label section-label-dark">Preise</span>
-      <h2 class="section-h2" style="color:#fff;">Transparent. <span class="gradient-text">Fair. Flexibel.</span></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.5);">Alle Tarife beinhalten eine <strong style="color:rgba(255,255,255,.8);">14-tägige kostenlose Testphase</strong>. Keine Einrichtungsgebühren, keine versteckten Kosten.</p>
+      <div class="section-label section-label-dark">Tarifübersicht</div>
+      <h2 class="section-h2">Transparente Preismodelle</h2>
+      <p class="section-sub">
+        Wählen Sie den Plan, der zu Ihrem Unternehmen passt.
+      </p>
     </div>
+
     <div class="pricing-grid">
-      <!-- Basis -->
-      <div class="pricing-card fade-up delay-100" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);">
+      <div class="pricing-card glass-card">
         <div class="pricing-card-inner">
-          <h3 style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px;">Basis</h3>
-          <p style="font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:24px;">Ideal für kleine Betriebe, die ihre Anrufe automatisieren möchten.</p>
-          <div style="display:flex;align-items:flex-end;gap:6px;">
-            <div class="pricing-price">229€</div>
-            <div class="pricing-period" style="margin-bottom:6px;">/ Monat</div>
-          </div>
-          <div class="pricing-setup">+ <span>499€ Einrichtung</span></div>
-          <div class="pricing-vat">zzgl. MwSt.</div>
-          <hr class="pricing-divider">
+          <h4 style="font-family: 'Sora', sans-serif; font-weight: 700; color: #fff; margin-bottom: 12px;">Starter</h4>
+          <div class="pricing-price">€99</div>
+          <div class="pricing-period">/Monat</div>
+          <div class="pricing-setup">Setup: <span>€299</span></div>
+          <div class="pricing-vat">zzgl. 19% MwSt.</div>
+
+          <hr class="pricing-divider" />
+
           <ul class="pricing-features">
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>100 Inklusivminuten pro Monat</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>1 Voice Agent</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Anrufannahme 24/7</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Terminbuchung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Adresserfassung mit Bestätigung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Überschreitung: 0,25 €/Min.</li>
-            <li class="excluded"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:2px;"><line x1="5" y1="12" x2="19" y2="12"/></svg>Anruf-Routing</li>
-            <li class="excluded"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:2px;"><line x1="5" y1="12" x2="19" y2="12"/></svg>CRM-Anbindung</li>
+            <li class="included">✓ Bis zu 100 Anrufe/Monat</li>
+            <li class="included">✓ 1 Telefonnummer</li>
+            <li class="included">✓ Basis-Terminbuchung</li>
+            <li class="included">✓ Deutsche Sprache</li>
+            <li class="excluded">✗ Erweiterte Anrufweiterleitung</li>
+            <li class="excluded">✗ Erweiterte Reports</li>
+            <li class="excluded">✗ Premium Support</li>
           </ul>
-          <button class="pricing-btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})">Demo buchen</button>
+
+          <button class="pricing-btn-outline">Jetzt starten</button>
         </div>
       </div>
-      <!-- Professional (Popular) -->
-      <div class="pricing-card fade-up delay-200" style="background:linear-gradient(160deg,rgba(0,87,184,.22) 0%,rgba(26,111,212,.12) 100%);border:1.5px solid rgba(0,87,184,.45);box-shadow:0 0 50px rgba(0,87,184,.2),0 20px 60px rgba(0,0,0,.3);">
-        <div class="pricing-popular-badge">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Beliebteste Wahl
-        </div>
+
+      <div class="pricing-card glass-card">
+        <div class="pricing-popular-badge">🌟 EMPFOHLEN</div>
         <div class="pricing-card-inner">
-          <h3 style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px;">Professional</h3>
-          <p style="font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:24px;">Die beliebteste Wahl für wachsende KMU mit aktivem Kundenkontakt.</p>
-          <div style="display:flex;align-items:flex-end;gap:6px;">
-            <div class="pricing-price">349€</div>
-            <div class="pricing-period" style="margin-bottom:6px;">/ Monat</div>
-          </div>
-          <div class="pricing-setup">+ <span>699€ Einrichtung</span></div>
-          <div class="pricing-vat">zzgl. MwSt.</div>
-          <hr class="pricing-divider">
+          <h4 style="font-family: 'Sora', sans-serif; font-weight: 700; color: #fff; margin-bottom: 12px;">Professional</h4>
+          <div class="pricing-price">€399</div>
+          <div class="pricing-period">/Monat</div>
+          <div class="pricing-setup">Setup: <span>kostenlos</span></div>
+          <div class="pricing-vat">zzgl. 19% MwSt.</div>
+
+          <hr class="pricing-divider" />
+
           <ul class="pricing-features">
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>250 Inklusivminuten pro Monat</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>1–2 Voice Agents</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Anrufannahme 24/7</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Terminbuchung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Adresserfassung mit Bestätigung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Anruf-Routing (dringend → Weiterleitung)</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Rückruf-Management</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Monatliche Optimierung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Überschreitung: 0,25 €/Min.</li>
-            <li class="excluded"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:2px;"><line x1="5" y1="12" x2="19" y2="12"/></svg>Kalender- oder CRM-Anbindung</li>
+            <li class="included">✓ Bis zu 1000 Anrufe/Monat</li>
+            <li class="included">✓ Bis zu 5 Telefonnummern</li>
+            <li class="included">✓ Erweiterte Terminverwaltung</li>
+            <li class="included">✓ Intelligente Anrufweiterleitung</li>
+            <li class="included">✓ Deutsche + Englisch</li>
+            <li class="included">✓ Detaillierte Reports</li>
+            <li class="excluded">✗ Premium Support 24/7</li>
           </ul>
-          <button class="btn-primary" style="width:100%;justify-content:center;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})">Demo buchen</button>
+
+          <button class="pricing-btn-outline">Jetzt starten</button>
         </div>
       </div>
-      <!-- Premium -->
-      <div class="pricing-card fade-up delay-300" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);">
+
+      <div class="pricing-card glass-card">
         <div class="pricing-card-inner">
-          <h3 style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px;">Premium</h3>
-          <p style="font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:24px;">Für Betriebe mit hohem Anrufvolumen und komplexen Anforderungen.</p>
-          <div style="display:flex;align-items:flex-end;gap:6px;">
-            <div class="pricing-price">549€</div>
-            <div class="pricing-period" style="margin-bottom:6px;">/ Monat</div>
-          </div>
-          <div class="pricing-setup">+ <span>999€ Einrichtung</span></div>
-          <div class="pricing-vat">zzgl. MwSt.</div>
-          <hr class="pricing-divider">
+          <h4 style="font-family: 'Sora', sans-serif; font-weight: 700; color: #fff; margin-bottom: 12px;">Enterprise</h4>
+          <div class="pricing-price">Custom</div>
+          <div class="pricing-period">/Monat</div>
+          <div class="pricing-setup">Setup: <span>Individuell</span></div>
+          <div class="pricing-vat">zzgl. 19% MwSt.</div>
+
+          <hr class="pricing-divider" />
+
           <ul class="pricing-features">
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>500 Inklusivminuten pro Monat</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>bis 3 Voice Agents</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Anrufannahme 24/7</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Terminbuchung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Adresserfassung mit Bestätigung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Anruf-Routing & Weiterleitung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Rückruf-Management</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Kalender- oder CRM-Anbindung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Komplexe Gesprächsflows</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Monatliche Optimierung + Priority Support</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Überschreitung: 0,25 €/Min.</li>
+            <li class="included">✓ Unbegrenzte Anrufe</li>
+            <li class="included">✓ Unlimited Telefonnummern</li>
+            <li class="included">✓ Custom Integrations</li>
+            <li class="included">✓ Mehrsprachig</li>
+            <li class="included">✓ Erweiterte Analytics</li>
+            <li class="included">✓ Premium 24/7 Support</li>
+            <li class="included">✓ Dedicated Account Manager</li>
           </ul>
-          <button class="pricing-btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})">Kontakt aufnehmen</button>
+
+          <button class="pricing-btn-outline">Kontaktieren Sie uns</button>
         </div>
       </div>
     </div>
-    <p class="pricing-note">Alle Preise verstehen sich zzgl. gesetzlicher MwSt. Jährliche Abrechnung auf Anfrage mit <span>15% Rabatt</span>.</p>
+
+    <div class="pricing-note">
+      Alle Preise verstehen sich ohne Mehrwertsteuer. Wir bieten flexible Vertragslaufzeiten und <span>kostenlose Testphase</span> an.
+    </div>
   </div>
 </section>
 
 <!-- FAQ -->
 <section id="faq" class="section-light">
-  <div class="container" style="padding-top:96px;padding-bottom:96px;">
+  <div class="container">
     <div class="section-header">
-      <span class="section-label">FAQ</span>
-      <h2 class="section-h2" style="color:var(--text-dark);">Häufige <span class="gradient-text-blue">Fragen</span></h2>
-      <p class="section-sub" style="color:var(--text-light);">Haben Sie weitere Fragen? Wir helfen Ihnen gerne weiter.</p>
+      <div class="section-label">Fragen & Antworten</div>
+      <h2 class="section-h2">Häufig gestellte Fragen</h2>
+      <p class="section-sub">
+        Hier finden Sie Antworten auf die wichtigsten Fragen zu Dialopt.
+      </p>
     </div>
+
     <div class="faq-list">
-      <div class="faq-item open">
-        <button class="faq-btn" onclick="toggleFaq(this)">
-          <span class="faq-question">Wie lange dauert die Einrichtung von Dialopt?</span>
-          <span class="faq-icon">−</span>
-        </button>
-        <div class="faq-answer" style="max-height:400px;">
-          <div class="faq-answer-inner">Die Einrichtung dauert in der Regel 1–2 Werktage. Unser Team begleitet Sie durch den gesamten Prozess: Wir konfigurieren die Gesprächsflüsse, richten die Weiterleitung ein und testen alles gemeinsam mit Ihnen, bevor Dialopt live geht.</div>
-        </div>
-      </div>
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">
-          <span class="faq-question">Klingt der KI-Sprachagent wie ein echter Mensch?</span>
-          <span class="faq-icon">+</span>
+        <button class="faq-btn">
+          <span class="faq-question">Wie wird Dialopt integriert?</span>
+          <div class="faq-icon">+</div>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Dialopt verwendet modernste Sprachsynthese-Technologie, die natürliches, fließendes Deutsch erzeugt. Die meisten Anrufer bemerken keinen Unterschied zu einem echten Mitarbeiter. Sie können außerdem wählen, ob Dialopt sich als KI-Assistent vorstellt oder nicht.</div>
+          <div class="faq-answer-inner">
+            Die Integration dauert typischerweise 5-10 Minuten. Sie leiten Ihre Telefonnummer auf unsere Nummer um, und Dialopt beantwortet sofort Ihre Anrufe. Keine technischen Kenntnisse erforderlich.
+          </div>
         </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">
-          <span class="faq-question">Was passiert, wenn ein Anrufer komplexe Fragen hat?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Dialopt ist darauf trainiert, häufige Fragen zu beantworten und Termine zu buchen. Bei komplexen oder dringenden Anfragen leitet der Agent den Anrufer automatisch an Sie oder einen Mitarbeiter weiter — entweder sofort oder mit einer Rückrufvereinbarung.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">
+        <button class="faq-btn">
           <span class="faq-question">Ist Dialopt DSGVO-konform?</span>
-          <span class="faq-icon">+</span>
+          <div class="faq-icon">+</div>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Ja, absolut. Dialopt ist vollständig DSGVO-konform. Alle Daten werden auf deutschen Servern gespeichert und verarbeitet. Wir stellen Ihnen einen Auftragsverarbeitungsvertrag (AVV) zur Verfügung und unterstützen Sie bei der Datenschutzdokumentation.</div>
+          <div class="faq-answer-inner">
+            Ja, absolut. Alle Daten werden auf sicheren Servern in Deutschland gehostet. Wir erfüllen alle DSGVO-Anforderungen und haben umfangreiche Sicherheitsmaßnahmen implementiert.
+          </div>
         </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">
-          <span class="faq-question">Kann ich Dialopt in meinen bestehenden Kalender integrieren?</span>
-          <span class="faq-icon">+</span>
+        <button class="faq-btn">
+          <span class="faq-question">Kann ich Dialopt kündigen?</span>
+          <div class="faq-icon">+</div>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Dialopt integriert sich nahtlos mit Google Calendar, Microsoft Outlook, Calendly und den meisten gängigen Praxisverwaltungssystemen. Für spezifische Systeme bieten wir individuelle Integrationen an.</div>
+          <div class="faq-answer-inner">
+            Ja, Sie können jederzeit mit 30 Tagen Frist kündigen. Es gibt keine Bindungsfristen oder versteckten Gebühren. Sie haben vollständige Kontrolle über Ihr Abonnement.
+          </div>
         </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">
-          <span class="faq-question">Was kostet Dialopt und gibt es eine Mindestlaufzeit?</span>
-          <span class="faq-icon">+</span>
+        <button class="faq-btn">
+          <span class="faq-question">Welche Sprachen unterstützt Dialopt?</span>
+          <div class="faq-icon">+</div>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Unsere Tarife beginnen bei 229€/Monat. Es gibt keine Mindestlaufzeit — Sie können monatlich kündigen. Wir bieten außerdem eine 14-tägige kostenlose Testphase ohne Kreditkarte an.</div>
+          <div class="faq-answer-inner">
+            Derzeit unterstützen wir Deutsch und Englisch. Weitere Sprachen können auf Anfrage implementiert werden. Kontaktieren Sie unser Team für Informationen zu spezifischen Sprachen.
+          </div>
         </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">
-          <span class="faq-question">Kann ich die Antworten des KI-Agenten anpassen?</span>
-          <span class="faq-icon">+</span>
+        <button class="faq-btn">
+          <span class="faq-question">Was kostet die Einrichtung?</span>
+          <div class="faq-icon">+</div>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Ja, vollständig. Sie können Gesprächsflüsse, Antworten, Begrüßungen und Weiterleitungsregeln individuell konfigurieren. Unser Team hilft Ihnen dabei, den Agenten perfekt auf Ihren Betrieb abzustimmen.</div>
+          <div class="faq-answer-inner">
+            Die Setup-Gebühren sind abhängig vom Tarif. Beim Starter-Plan kostet die Einrichtung €299, beim Professional-Plan ist sie kostenlos. Bei Enterprise-Lösungen wird ein individuelles Angebot erstellt.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">Gibt es einen kostenlosen Test?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Ja! Wir bieten eine kostenlose 7-Tage-Testphase an. Sie können Dialopt vollständig testen, ohne eine Zahlungsmethode angeben zu müssen. Jederzeit kündbar.
+          </div>
         </div>
       </div>
     </div>
-    <div class="faq-footer fade-up delay-400">
-      Noch Fragen? <a href="#contact" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Kontaktieren Sie uns direkt →</a>
+
+    <div class="faq-footer">
+      Haben Sie weitere Fragen? <a href="#contact">Kontaktieren Sie uns!</a>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section-darker">
+<section id="contact" class="section-dark">
   <div class="contact-glow"></div>
-  <div class="container" style="padding-top:96px;padding-bottom:96px;position:relative;z-index:1;">
-    <div class="section-header">
-      <span class="section-label section-label-dark">Kontakt</span>
-      <h2 class="section-h2" style="color:#fff;">Bereit für den <span class="gradient-text">nächsten Schritt?</span></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.5);">Buchen Sie jetzt Ihre kostenlose Demo und erleben Sie Dialopt live — in weniger als 30 Minuten.</p>
+
+  <div class="container">
+    <div class="section-header" style="margin-bottom: 48px;">
+      <div class="section-label section-label-dark">Kontakt</div>
+      <h2 class="section-h2">Buchen Sie Ihre Demo</h2>
+      <p class="section-sub">
+        Erfahren Sie live, wie Dialopt Ihrem Unternehmen helfen kann.
+      </p>
     </div>
+
     <div class="contact-grid">
-      <!-- Left Info -->
-      <div class="fade-up delay-100">
-        <div class="contact-info-label">Kontaktinformationen</div>
+      <div>
+        <div class="contact-info-label">Kontaktieren Sie uns</div>
+
         <div class="contact-info-item">
-          <div class="contact-info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg></div>
-          <div><div class="contact-info-sublabel">Telefon</div><a href="tel:+491234567890" class="contact-info-value">+49 (0) 123 456789</a></div>
+          <div class="contact-info-icon">📞</div>
+          <div>
+            <div class="contact-info-sublabel">Telefon</div>
+            <a href="tel:+49123456789" class="contact-info-value">+49 (0) 123 456789</a>
+          </div>
         </div>
+
         <div class="contact-info-item">
-          <div class="contact-info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><div class="contact-info-sublabel">E-Mail</div><a href="mailto:david.gaizenreider@dialopt.info" class="contact-info-value">david.gaizenreider@dialopt.info</a></div>
+          <div class="contact-info-icon">✉️</div>
+          <div>
+            <div class="contact-info-sublabel">E-Mail</div>
+            <a href="mailto:hello@dialopt.de" class="contact-info-value">hello@dialopt.de</a>
+          </div>
         </div>
+
         <div class="contact-info-item">
-          <div class="contact-info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><div class="contact-info-sublabel">Standort</div><span class="contact-info-value">Schopfloch, Deutschland</span></div>
+          <div class="contact-info-icon">📍</div>
+          <div>
+            <div class="contact-info-sublabel">Adresse</div>
+            <div class="contact-info-value">Dialopt GmbH<br />Musterstraße 42<br />10115 Berlin</div>
+          </div>
         </div>
 
         <div class="glass-card testimonial">
-          <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-          <p class="testimonial-text">„Seit wir Dialopt nutzen, verpassen wir keine Reservierungsanfrage mehr. Unsere Gäste sind begeistert von der schnellen Rückmeldung."</p>
+          <div class="stars">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p class="testimonial-text">
+            "Dialopt hat unser Geschäft transformiert. Wir verpassen keine Anrufe mehr und sparen tausende Euro pro Monat!"
+          </p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">MK</div>
             <div>
-              <div class="testimonial-name">Marco K.</div>
-              <div class="testimonial-company">Restaurant Zur Linde, München</div>
+              <div class="testimonial-name">Maria Klein</div>
+              <div class="testimonial-company">Zahnarztpraxis Klein</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Right Form -->
-      <div class="fade-up delay-200">
-        <div class="glass-card">
-          <!-- Success state -->
-          <div class="form-success" id="form-success">
-            <div style="width:64px;height:64px;border-radius:50%;background:rgba(16,185,129,.12);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            </div>
-            <h3 style="font-family:'Sora',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:12px;">Vielen Dank!</h3>
-            <p style="font-size:.9rem;color:rgba(255,255,255,.5);max-width:320px;line-height:1.7;">Wir haben Ihre Anfrage erhalten und melden uns innerhalb von <strong style="color:rgba(255,255,255,.8);">24 Stunden</strong> bei Ihnen. Wir freuen uns auf das Gespräch!</p>
-          </div>
+      <div class="light-card">
+        <div class="contact-form">
+          <form onsubmit="handleFormSubmit(event)">
+            <div class="form-error" id="form-error"></div>
 
-          <!-- Form -->
-          <form class="contact-form" id="contact-form" action="https://formspree.io/f/mwvyondj" method="POST" onsubmit="handleSubmit(event)">
-            <div id="form-error" class="form-error">Bitte füllen Sie alle Pflichtfelder aus.</div>
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label" for="fname">Name *</label>
-                <input class="form-input" type="text" id="fname" name="name" placeholder="Max Mustermann" required>
+                <label class="form-label">Vorname *</label>
+                <input type="text" class="form-input" name="firstName" required />
               </div>
               <div class="form-group">
-                <label class="form-label" for="fcompany">Unternehmen</label>
-                <input class="form-input" type="text" id="fcompany" name="company" placeholder="Muster GmbH">
+                <label class="form-label">Nachname *</label>
+                <input type="text" class="form-input" name="lastName" required />
               </div>
             </div>
+
             <div class="form-group">
-              <label class="form-label" for="femail">E-Mail *</label>
-              <input class="form-input" type="email" id="femail" name="email" placeholder="max@example.com" required>
+              <label class="form-label">E-Mail *</label>
+              <input type="email" class="form-input" name="email" required />
             </div>
+
             <div class="form-group">
-              <label class="form-label" for="findustry">Branche</label>
-              <select class="form-select" id="findustry" name="industry">
-                <option value="">Bitte wählen...</option>
-                <option value="restaurant">Restaurant & Gastronomie</option>
-                <option value="handwerk">Handwerk & Dienstleistungen</option>
-                <option value="medical">Arztpraxis & Medizin</option>
+              <label class="form-label">Unternehmen</label>
+              <input type="text" class="form-input" name="company" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Branche</label>
+              <select class="form-select" name="industry">
+                <option value="">-- Wählen Sie eine Branche --</option>
+                <option value="healthcare">Zahnmedizin / Medizin</option>
+                <option value="salon">Salon & Wellness</option>
+                <option value="consulting">Beratung & Agenturen</option>
+                <option value="retail">Einzelhandel</option>
                 <option value="other">Sonstiges</option>
               </select>
             </div>
+
             <div class="form-group">
-              <label class="form-label" for="fmessage">Nachricht</label>
-              <textarea class="form-textarea" id="fmessage" name="message" rows="4" placeholder="Erzählen Sie uns von Ihren Anforderungen..."></textarea>
+              <label class="form-label">Nachricht</label>
+              <textarea class="form-textarea" name="message" rows="4" placeholder="Schreiben Sie uns, wie wir Ihnen helfen können..."></textarea>
             </div>
-            <input type="hidden" name="_replyto" id="freplyto">
-            <button type="submit" class="form-submit">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-              Jetzt absenden
-            </button>
-            <p class="form-privacy">Wir behandeln Ihre Daten vertraulich. Lesen Sie unsere <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+
+            <button type="submit" class="form-submit">Demo anfragen →</button>
+
+            <div class="form-privacy">
+              Ich akzeptiere die <a href="#" style="color: rgba(255,255,255,.6);">Datenschutzerklärung</a> und die <a href="#" style="color: rgba(255,255,255,.6);">Nutzungsbedingungen</a>.
+            </div>
+
+            <div class="form-success" id="form-success">
+              <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 12px;">✓ Vielen Dank!</h3>
+              <p style="color: rgba(255,255,255,.7);">
+                Ihre Demo-Anfrage wurde eingegangen. Wir kontaktieren Sie in Kürze!
+              </p>
+            </div>
           </form>
         </div>
       </div>
@@ -1534,147 +1661,114 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <img src="data:image/png;base64,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" alt="Dialopt Logo" style="height:28px;width:auto;">
-      <span class="footer-copy">© 2026 Dialopt. Alle Rechte vorbehalten.</span>
-      <nav class="footer-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-      </nav>
+      <div class="footer-copy">© 2026 Dialopt. Alle Rechte vorbehalten.</div>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#problem">Problem</a>
+        <a href="#solution">Lösung</a>
+        <a href="#pricing">Preise</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutzerklärung</a>
+      <a href="#">Nutzungsbedingungen</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // ── Hero Canvas ──
-  (function() {
-    const canvas = document.getElementById('hero-canvas');
-    const ctx = canvas.getContext('2d');
-    let w, h, particles = [], animId;
-
-    function resize() {
-      w = canvas.offsetWidth; h = canvas.offsetHeight;
-      canvas.width = w; canvas.height = h;
-    }
-
-    function init() {
-      resize();
-      const count = Math.min(55, Math.floor((w * h) / 16000));
-      particles = [];
-      for (let i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * w, y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
-          r: Math.random() * 1.8 + 0.8,
-          o: Math.random() * 0.55 + 0.25
-        });
+  // FAQ Accordion
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const item = this.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+      document.querySelectorAll('.faq-answer').forEach(el => el.style.maxHeight = '0px');
+      
+      if (!isOpen) {
+        item.classList.add('open');
+        const answer = item.querySelector('.faq-answer');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
       }
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
-          const d = Math.sqrt(dx*dx + dy*dy);
-          if (d < 150) {
-            const a = (1 - d / 150) * 0.22;
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(26,111,212,${a})`;
-            ctx.lineWidth = 0.7;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-      for (const p of particles) {
-        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5);
-        g.addColorStop(0, `rgba(26,111,212,${p.o * 0.35})`);
-        g.addColorStop(1, 'rgba(26,111,212,0)');
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2);
-        ctx.fillStyle = g; ctx.fill();
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(96,165,250,${p.o})`; ctx.fill();
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
-      }
-      animId = requestAnimationFrame(draw);
-    }
-
-    init(); draw();
-    window.addEventListener('resize', () => { cancelAnimationFrame(animId); init(); draw(); }, { passive: true });
-  })();
-
-  // ── FAQ Accordion ──
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const answer = item.querySelector('.faq-answer');
-    const icon = item.querySelector('.faq-icon');
-    const isOpen = item.classList.contains('open');
-
-    // close all
-    document.querySelectorAll('.faq-item.open').forEach(el => {
-      el.classList.remove('open');
-      el.querySelector('.faq-answer').style.maxHeight = '0';
-      el.querySelector('.faq-icon').textContent = '+';
     });
+  });
 
-    if (!isOpen) {
-      item.classList.add('open');
-      answer.style.maxHeight = '400px';
-      icon.textContent = '−';
-    }
-  }
-
-  // ── Contact Form with Formspree ──
-  async function handleSubmit(e) {
+  // Form Handler
+  function handleFormSubmit(e) {
     e.preventDefault();
-    const form = document.getElementById('contact-form');
-    const errorEl = document.getElementById('form-error');
-    const submitBtn = form.querySelector('.form-submit');
-
-    errorEl.classList.remove('visible');
-
-    const name = document.getElementById('fname').value.trim();
-    const email = document.getElementById('femail').value.trim();
-    if (!name || !email) {
-      errorEl.textContent = 'Bitte füllen Sie Name und E-Mail aus.';
-      errorEl.classList.add('visible');
-      return;
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<div style="width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;"></div> Wird gesendet...';
-
-    const data = new FormData(form);
-    data.set('_replyto', email);
-
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (res.ok) {
-        form.style.display = 'none';
-        document.getElementById('form-success').classList.add('visible');
-      } else {
-        throw new Error();
-      }
-    } catch {
-      errorEl.textContent = 'Fehler beim Versenden. Bitte versuchen Sie es später erneut.';
-      errorEl.classList.add('visible');
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Jetzt absenden';
-    }
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+    
+    // Hier würde die echte API-Integration erfolgen
+    console.log('Form data:', data);
+    
+    // Demo: Zeige Erfolg an
+    form.style.display = 'none';
+    document.getElementById('form-success').classList.add('visible');
   }
 
-  // spin animation for loading
-  const style = document.createElement('style');
-  style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
-  document.head.appendChild(style);
+  // Canvas Animation (Hero)
+  const canvas = document.getElementById('hero-canvas');
+  if (canvas && canvas.getContext) {
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    let particles = [];
+    
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 2;
+        this.opacity = Math.random() * 0.5;
+      }
+      
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.x > canvas.width) this.x = 0;
+        if (this.y < 0) this.y = canvas.height;
+        if (this.y > canvas.height) this.y = 0;
+      }
+      
+      draw() {
+        ctx.fillStyle = `rgba(96, 165, 250, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    
+    for (let i = 0; i < 50; i++) {
+      particles.push(new Particle());
+    }
+    
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  }
 </script>
+
 </body>
 </html>
