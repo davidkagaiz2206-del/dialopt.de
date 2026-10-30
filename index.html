@@ -9,7 +9,6 @@
   data-fab-text="Brauchst du Hilfe?"
   data-title="Wie können wir helfen?"
   data-popup-message="Hi! Brauchst du Hilfe?"
-  <script>
 document.addEventListener("click", function (e) {
   var path = e.composedPath ? e.composedPath() : [];
   var link = null;
@@ -32,7 +31,6 @@ document.addEventListener("click", function (e) {
   target.scrollIntoView({ behavior: "smooth", block: "start" });
   history.pushState(null, "", url.hash);
 }, true);
-</script>
 
 ></script>
 
