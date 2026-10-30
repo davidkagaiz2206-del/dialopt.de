@@ -9,29 +9,6 @@
   data-fab-text="Brauchst du Hilfe?"
   data-title="Wie können wir helfen?"
   data-popup-message="Hi! Brauchst du Hilfe?"
-document.addEventListener("click", function (e) {
-  var path = e.composedPath ? e.composedPath() : [];
-  var link = null;
-  for (var i = 0; i < path.length; i++) {
-    if (path[i].tagName === "A") { link = path[i]; break; }
-  }
-  if (!link) return;
-
-  var url;
-  try { url = new URL(link.href); } catch (err) { return; }
-
-  var isOwnSite = url.hostname === "dialopt.de" || url.hostname === "www.dialopt.de";
-  if (!isOwnSite || !url.hash) return;
-
-  var target = document.querySelector(url.hash);
-  if (!target) return;
-
-  e.preventDefault();
-  e.stopPropagation();
-  target.scrollIntoView({ behavior: "smooth", block: "start" });
-  history.pushState(null, "", url.hash);
-}, true);
-
 ></script>
 
   <meta property="og:image" content="https://dialopt.de/dialopt_logo_hell_transparent.png" />
@@ -1750,6 +1727,28 @@ document.addEventListener("click", function (e) {
     btn.classList.remove('open');
     document.body.style.overflow = '';
   }
+  document.addEventListener("click", function (e) {
+  var path = e.composedPath ? e.composedPath() : [];
+  var link = null;
+  for (var i = 0; i < path.length; i++) {
+    if (path[i].tagName === "A") { link = path[i]; break; }
+  }
+  if (!link) return;
+
+  var url;
+  try { url = new URL(link.href); } catch (err) { return; }
+
+  var isOwnSite = url.hostname === "dialopt.de" || url.hostname === "www.dialopt.de";
+  if (!isOwnSite || !url.hash) return;
+
+  var target = document.querySelector(url.hash);
+  if (!target) return;
+
+  e.preventDefault();
+  e.stopPropagation();
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+  history.pushState(null, "", url.hash);
+}, true);
 </script>
 </body>
 </html>
