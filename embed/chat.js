@@ -71,6 +71,18 @@
   var FIT_CSS = '[class*="_windowChat_"],[class*="_windowVoice_"],[class*="_windowChooser_"]{' +
     'max-height:calc(100vh - 108px)!important;max-height:calc(100dvh - 108px)!important}' +
     'img[class*="_chatHeader_"]{height:25px!important;max-width:160px}';
+  // Blauton aus der Kundenfarbe: Kopfbereich getönt, Nachrichten und Eingabe bleiben weiß
+  function tintCss() {
+    var c = cfg.color;
+    return '[class*="_innerShell_"]{background:color-mix(in srgb,' + c + ' 10%,#fff)!important}' +
+      '[class*="_header_"]{background:color-mix(in srgb,' + c + ' 10%,#fff);border-bottom:1px solid color-mix(in srgb,' + c + ' 20%,#fff);padding-bottom:6px!important}' +
+      '[class*="_closeButton_"]{background:#fff!important;color:' + c + '!important}' +
+      '[class*="_closeButton_"]:hover,[class*="_navButton_"]:hover{background:color-mix(in srgb,' + c + ' 20%,#fff)!important}' +
+      '[class*="_messages_"],[class*="_inputRow_"]{background:#fff!important}' +
+      '[class*="_inputShell_"]{border-color:color-mix(in srgb,' + c + ' 25%,#fff)!important}' +
+      '[class*="_agent_"]{background:color-mix(in srgb,' + c + ' 10%,#fff)!important}' +
+      '[class*="_user_"]{background:' + c + '!important;color:#fff!important}';
+  }
   function fitRetell() {
     var tries = 0;
     var t = setInterval(function () {
@@ -81,7 +93,7 @@
         if (h.shadowRoot && !h.shadowRoot.querySelector('style[data-dialopt-fit]')) {
           var st = document.createElement('style');
           st.setAttribute('data-dialopt-fit', '');
-          st.textContent = FIT_CSS;
+          st.textContent = FIT_CSS + tintCss();
           h.shadowRoot.appendChild(st);
           clearInterval(t);
         }

@@ -87,7 +87,16 @@
   // Browserfenstern wird es oben abgeschnitten. Höhe an den sichtbaren Bereich anpassen.
   var FIT_CSS = '[class*="_windowChat_"],[class*="_windowVoice_"],[class*="_windowChooser_"]{' +
     'max-height:calc(100vh - 108px)!important;max-height:calc(100dvh - 108px)!important}' +
-    'img[class*="_chatHeader_"]{height:25px!important;max-width:160px}';
+    'img[class*="_chatHeader_"]{height:25px!important;max-width:160px}' +
+    // Blauton: Kopfbereich hellblau, Nachrichten und Eingabe bleiben weiß
+    '[class*="_innerShell_"]{background:#e8f1fc!important}' +
+    '[class*="_header_"]{background:#e8f1fc;border-bottom:1px solid #d3e3f7;padding-bottom:6px!important}' +
+    '[class*="_closeButton_"]{background:#fff!important;color:#0057B8!important}' +
+    '[class*="_closeButton_"]:hover,[class*="_navButton_"]:hover{background:#d3e3f7!important;color:#0A1628!important}' +
+    '[class*="_messages_"],[class*="_inputRow_"]{background:#fff!important}' +
+    '[class*="_inputShell_"]{border-color:#c5d8f0!important}' +
+    '[class*="_agent_"]{background:#e8f1fc!important;color:#0A1628!important}' +
+    '[class*="_user_"]{background:#0057B8!important;color:#fff!important}';
   function fitRetell() {
     var tries = 0;
     var t = setInterval(function () {
