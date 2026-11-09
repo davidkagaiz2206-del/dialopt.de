@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dialopt - Keine Anfrage bleibt unbeantwortet.</title>
   <link rel="canonical" href="https://dialopt.de/chatbot.html" />
-  <meta name="description" content="Dialopt ist Ihr KI-Chatbot, der rund um die Uhr Kundenanfragen auf Ihrer Website beantwortet und Leads erfasst." />
+  <meta name="description" content="Dialopt ist ein KI-Chatbot für Ihre Website: beantwortet Kundenfragen und unterstützt Sie bei der Erfassung von Anfragen." />
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="/fonts.css" />
@@ -599,12 +599,12 @@
     #pricing { padding: 96px 0; }
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       align-items: start;
     }
-    @media (max-width: 1200px) {
-      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 1000px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width:480px; margin:0 auto; }
     }
     .pricing-card {
       border-radius: 20px;
@@ -1026,6 +1026,15 @@
    
 
     /* ── CHATBOT-ONLY LAYOUT (distinct from telefonassistent page) ── */
+    .chat-mockup-label {
+      text-align: center;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 10px;
+    }
     .chat-mockup {
       max-width: 360px;
       margin: 0 auto;
@@ -1164,27 +1173,29 @@
       <div class="hero-inner">
         <div class="hero-badge fade-up">
           <span class="hero-badge-dot"></span>
-          Keine Anfrage bleibt unbeantwortet.
+          KI-Chatbot für Ihre Website
         </div>
 
         <h1 class="hero-h1 fade-up delay-100">
-          Keine Anfrage <span class="gradient-text">bleibt</span><br>unbeantwortet.
+          Antworten für Ihre Kunden. <span class="gradient-text">Entlastung</span><br>für Ihr Team.
         </h1>
 
         <p class="hero-sub fade-up delay-200">
-          Dialopt ist Ihr KI-Chatbot, der rund um die Uhr Kundenanfragen auf Ihrer Website beantwortet,
-          Leads erfasst und Ihre Kunden auf Deutsch betreut — ganz ohne zusätzliches Personal.
+          Dialopt ist ein KI-Chatbot für Ihre Website. Er beantwortet häufige Kundenfragen,
+          hilft Besuchern bei der Orientierung und unterstützt Sie dabei, Anfragen zu erfassen —
+          damit sich Ihr Team auf die Fälle konzentrieren kann, die persönliche Betreuung brauchen.
         </p>
 
+        <div class="chat-mockup-label fade-up delay-200">Beispielhafte Unterhaltung</div>
         <div class="chat-mockup fade-up delay-200">
           <div class="chat-mockup-row">
-            <div class="chat-bubble bot">Hallo! Wie kann ich Ihnen heute helfen? 👋</div>
+            <div class="chat-bubble bot">Hallo! Wie kann ich Ihnen weiterhelfen? 👋</div>
           </div>
           <div class="chat-mockup-row user">
-            <div class="chat-bubble user">Haben Sie am Samstag noch Termine frei?</div>
+            <div class="chat-bubble user">Welche Öffnungszeiten habt ihr?</div>
           </div>
           <div class="chat-mockup-row">
-            <div class="chat-bubble bot">Ja, am Samstag sind noch 14:00 und 16:30 Uhr frei. Soll ich einen davon für Sie reservieren?</div>
+            <div class="chat-bubble bot">Unser Team ist Mo–Fr von 9 bis 18 Uhr für Sie da. Außerhalb dieser Zeiten beantworte ich gerne schon mal Ihre Fragen — das Team meldet sich danach bei Ihnen.</div>
           </div>
           <div class="chat-mockup-row">
             <div class="chat-typing"><span></span><span></span><span></span></div>
@@ -1194,13 +1205,14 @@
         <div class="cta-row fade-up delay-300">
           <a href="#contact" class="btn-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-            Jetzt Demo buchen
+            Demo anfragen
           </a>
           <a href="#problem" class="btn-outline">
             Mehr erfahren
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
+        <p class="fade-up delay-300" style="font-size:.78rem;color:rgba(255,255,255,.35);margin-top:-40px;margin-bottom:40px;">Sie gelangen zu unserem Kontaktformular — wir melden uns persönlich bei Ihnen.</p>
 
         <div class="stats-row fade-up delay-400">
           <div class="stat-item">
@@ -1259,7 +1271,7 @@
       </div>
     </div>
     <div style="margin-top:56px;text-align:center;">
-      <p style="font-size:.875rem;color:rgba(255,255,255,.35);">Kennen Sie diese Probleme? <a href="#solution" style="color:#60a5fa;font-weight:600;text-decoration:underline;text-underline-offset:2px;">Dialopt löst sie alle.</a></p>
+      <p style="font-size:.875rem;color:rgba(255,255,255,.35);">Kennen Sie diese Probleme? <a href="#solution" style="color:#60a5fa;font-weight:600;text-decoration:underline;text-underline-offset:2px;">So kann Dialopt helfen.</a></p>
     </div>
   </div>
 </section>
@@ -1274,42 +1286,42 @@
         <div class="feature-list-row">
           <div class="feature-list-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
           <div>
-            <h3>24/7 Erreichbarkeit</h3>
-            <p>Ihr KI-Chatbot beantwortet jede Anfrage — nachts, am Wochenende und an Feiertagen.</p>
+            <h3>Rund um die Uhr erreichbar</h3>
+            <p>Der Chatbot ist durchgehend auf Ihrer Website aktiv — auch nachts und am Wochenende, wenn niemand aus Ihrem Team erreichbar ist.</p>
           </div>
         </div>
         <div class="feature-list-row">
           <div class="feature-list-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg></div>
           <div>
-            <h3>Automatische Lead-Erfassung</h3>
-            <p>Dialopt erfasst Kontaktdaten und Anliegen direkt im Chat und leitet sie automatisch an Ihr Team weiter.</p>
+            <h3>Mit Ihrem Wissen trainiert</h3>
+            <p>Sie hinterlegen die Informationen zu Ihrem Unternehmen — der Chatbot nutzt diese Grundlage, um Fragen Ihrer Besucher zu beantworten.</p>
           </div>
         </div>
         <div class="feature-list-row">
           <div class="feature-list-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
           <div>
             <h3>Natürliches Deutsch</h3>
-            <p>Fließendes Deutsch im Chat — kein starres Formular, sondern echte Konversation.</p>
+            <p>Der Chatbot kommuniziert in natürlichem Deutsch statt über ein starres Formular.</p>
           </div>
         </div>
         <div class="feature-list-row">
           <div class="feature-list-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
           <div>
             <h3>Einfache Einbindung</h3>
-            <p>Ein kurzer Code-Schnipsel reicht. Wir richten Dialopt passend zu Ihrer Website und Ihren Anforderungen ein.</p>
+            <p>Der Chatbot wird direkt auf Ihrer Website eingebunden. Die technische Einrichtung übernehmen wir für Sie.</p>
           </div>
         </div>
       </div>
       <div class="fade-up" style="order:2;">
         <span class="section-label">Die Lösung</span>
-        <h2 class="section-h2" style="color:var(--text-dark);">Ihr Chatbot, <span class="gradient-text-blue">der nie ausfällt</span></h2>
-        <p style="font-size:1.05rem;color:var(--text-mid);line-height:1.7;margin-bottom:32px;">Dialopt beantwortet alle eingehenden Anfragen auf Ihrer Website, klärt häufige Fragen und erfasst Leads — vollautomatisch, in natürlichem Deutsch und ohne dass Ihr Team eingreifen muss.</p>
+        <h2 class="section-h2" style="color:var(--text-dark);">Ein Chatbot, <span class="gradient-text-blue">der zu Ihnen passt</span></h2>
+        <p style="font-size:1.05rem;color:var(--text-mid);line-height:1.7;margin-bottom:32px;">Dialopt beantwortet auf Basis Ihres hinterlegten Unternehmenswissens häufige Fragen Ihrer Besucher und hilft ihnen bei der Orientierung auf Ihrer Website — in natürlichem Deutsch und mit Ihrem Logo, Ihren Farben und Ihrem Bot-Namen.</p>
         <ul class="checklist">
-          <li><div class="check-icon"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#0057B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Keine Wartezeiten für Ihre Besucher</li>
-          <li><div class="check-icon"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#0057B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Vollständige Chat-Protokolle</li>
-          <li><div class="check-icon"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#0057B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Einfache Einbindung auf jeder Website</li>
+          <li><div class="check-icon"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#0057B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Antworten auf Basis Ihres Unternehmenswissens</li>
+          <li><div class="check-icon"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#0057B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Mit Ihrem Logo und Ihren Farben eingebunden</li>
+          <li><div class="check-icon"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#0057B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Einbindung auf Ihrer Website</li>
         </ul>
-        <a href="#contact" class="btn-primary">Jetzt kostenlos testen</a>
+        <a href="#contact" class="btn-primary">Demo anfragen</a>
       </div>
     </div>
   </div>
@@ -1337,14 +1349,14 @@
         <div class="timeline-num">2</div>
         <div class="timeline-content">
           <h3>Aktivieren</h3>
-          <p>Ein kurzer Code-Schnipsel wird in Ihre Website eingebunden. Der KI-Agent ist sofort aktiv und beantwortet alle Anfragen in Ihrem Namen.</p>
+          <p>Der Chatbot wird in Ihre Website eingebunden und ist sofort aktiv — bereit, Fragen Ihrer Besucher in Ihrem Namen zu beantworten.</p>
         </div>
       </div>
       <div class="timeline-step fade-up delay-400">
         <div class="timeline-num">3</div>
         <div class="timeline-content">
           <h3>Fertig</h3>
-          <p>Dialopt arbeitet rund um die Uhr für Sie. Sie erhalten tägliche Zusammenfassungen und können jederzeit Einstellungen anpassen.</p>
+          <p>Dialopt ist rund um die Uhr auf Ihrer Website aktiv. Inhalte, Begrüßung und Design können Sie jederzeit anpassen lassen.</p>
         </div>
       </div>
     </div>
@@ -1362,120 +1374,95 @@
       <h2 class="section-h2" style="color:#fff;">Transparent. <span class="gradient-text">Fair. Flexibel.</span></h2>
     </div>
     <div class="pricing-grid">
-      <!-- Basis -->
+      <!-- Basic -->
       <div class="pricing-card fade-up delay-100" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);">
         <div class="pricing-card-inner">
-          <h3 style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px;">Basis</h3>
-          <p style="font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:24px;">Ideal für kleine Betriebe, die ihre Website-Anfragen automatisieren möchten.</p>
+          <h3 style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px;">Basic</h3>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:24px;">Für kleine Unternehmen.</p>
           <div style="display:flex;align-items:flex-end;gap:6px;">
-            <div class="pricing-price">[PREIS]€</div>
+            <div class="pricing-price">49€</div>
             <div class="pricing-period" style="margin-bottom:6px;">/ Monat</div>
           </div>
-          <div class="pricing-setup">+ <span>[SETUP-PREIS]€ Einrichtung</span></div>
+          <div class="pricing-setup">+ <span>99€ Einrichtung (einmalig)</span></div>
           
           <hr class="pricing-divider">
           <ul class="pricing-features">
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>[ANZAHL] Konversationen inklusive pro Monat</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>1 Chat Agent</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Chatbot-Verfügbarkeit 24/7</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Lead-Erfassung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Kontaktdaten-Erfassung mit Bestätigung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Überschreitung: [PREIS]€/Konversation</li>
-            <li class="excluded"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:2px;"><line x1="5" y1="12" x2="19" y2="12"/></svg>Chat-Weiterleitung</li>
-            <li class="excluded"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:2px;"><line x1="5" y1="12" x2="19" y2="12"/></svg>CRM-Anbindung</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>500 KI-Nachrichten pro Monat</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Website-Chatbot</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Antworten auf häufige Fragen</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Unternehmenswissen als Grundlage</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Einbindung auf einer Webseite</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Firmenlogo und Firmenfarben</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Individueller Bot-Name</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Begrüßungsnachricht</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>reCAPTCHA-Schutz</li>
           </ul>
-          <button class="pricing-btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})">Demo buchen</button>
+          <button class="pricing-btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})">Demo anfragen</button>
         </div>
       </div>
-      <!-- Professional (Popular) -->
+      <!-- Professional (Hauptpaket) -->
       <div class="pricing-card fade-up delay-200" style="background:linear-gradient(160deg,rgba(0,87,184,.22) 0%,rgba(26,111,212,.12) 100%);border:1.5px solid rgba(0,87,184,.45);box-shadow:0 0 50px rgba(0,87,184,.2),0 20px 60px rgba(0,0,0,.3);">
         <div class="pricing-popular-badge">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Beliebteste Wahl
+          Hauptpaket
         </div>
         <div class="pricing-card-inner">
           <h3 style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px;">Professional</h3>
-          <p style="font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:24px;">Die beliebteste Wahl für wachsende KMU mit aktivem Kundenkontakt.</p>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:24px;">Für Unternehmen mit regelmäßigem Kundenkontakt.</p>
           <div style="display:flex;align-items:flex-end;gap:6px;">
-            <div class="pricing-price">[PREIS]€</div>
+            <div class="pricing-price">99€</div>
             <div class="pricing-period" style="margin-bottom:6px;">/ Monat</div>
           </div>
-          <div class="pricing-setup">+ <span>[SETUP-PREIS]€ Einrichtung</span></div>
+          <div class="pricing-setup">+ <span>199€ Einrichtung (einmalig)</span></div>
          
           <hr class="pricing-divider">
           <ul class="pricing-features">
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>[ANZAHL] Konversationen inklusive pro Monat</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>1–2 Chat Agents</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Chatbot-Verfügbarkeit 24/7</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Lead-Erfassung mit CRM-Weiterleitung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Kontaktdaten-Erfassung mit Bestätigung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Chat-Weiterleitung (dringend → Mitarbeiter)</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Lead-Benachrichtigung per E-Mail</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Monatliche Optimierung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Überschreitung: [PREIS]€/Konversation</li>
-            <li class="excluded"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:2px;"><line x1="5" y1="12" x2="19" y2="12"/></svg>CRM-Anbindung</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>2.000 KI-Nachrichten pro Monat</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Alles aus Basic</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Erweiterte Wissensbasis</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Individuelle Gesprächsführung</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Individuelle Begrüßungs- und Popup-Nachrichten</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Erweiterte Design-Anpassung</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Chat- und Voice-Widget kombinierbar</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Dynamische Unternehmensinformationen</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>reCAPTCHA-Schutz</li>
           </ul>
-          <button class="btn-primary" style="width:100%;justify-content:center;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})">Demo buchen</button>
+          <button class="btn-primary" style="width:100%;justify-content:center;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})">Demo anfragen</button>
         </div>
       </div>
       <!-- Premium -->
       <div class="pricing-card fade-up delay-300" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);">
         <div class="pricing-card-inner">
           <h3 style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px;">Premium</h3>
-          <p style="font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:24px;">Für Betriebe mit hohem Anfragevolumen und komplexen Anforderungen.</p>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:24px;">Für Unternehmen mit höherem Anfragevolumen.</p>
           <div style="display:flex;align-items:flex-end;gap:6px;">
-            <div class="pricing-price">[PREIS]€</div>
+            <div class="pricing-price">199€</div>
             <div class="pricing-period" style="margin-bottom:6px;">/ Monat</div>
           </div>
-          <div class="pricing-setup">+ <span>[SETUP-PREIS]€ Einrichtung</span></div>
+          <div class="pricing-setup">+ <span>399€ Einrichtung (einmalig)</span></div>
          
           <hr class="pricing-divider">
           <ul class="pricing-features">
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>[ANZAHL] Konversationen inklusive pro Monat</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>bis 3 Chat Agents</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Chatbot-Verfügbarkeit 24/7</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Lead-Erfassung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Kontaktdaten-Erfassung mit Bestätigung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Chat-Weiterleitung & Eskalation</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Lead-Benachrichtigung per E-Mail</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>CRM-Anbindung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Komplexe Chat-Flows</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Monatliche Optimierung + Priority Support</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Überschreitung: [PREIS]€/Konversation</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>5.000 KI-Nachrichten pro Monat</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Alles aus Professional</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Chat- und Voice-Widget</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Callback-Funktion</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Erweiterte Anpassung der Agenten</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Mehrere Wissensbereiche</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Individuelle dynamische Variablen</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Erweiterte technische Einrichtung</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Priorisierter Support</li>
+            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>reCAPTCHA-Schutz</li>
           </ul>
-          <button class="pricing-btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})">Demo buchen</button>
-        </div>
-      </div>
-
-      <!-- Custom -->
-      <div class="pricing-card fade-up delay-400" style="background:linear-gradient(160deg,rgba(96,165,250,.1) 0%,rgba(167,139,250,.06) 100%);border:1px solid rgba(96,165,250,.2);">
-        <div class="pricing-card-inner">
-          <h3 style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px;">Custom</h3>
-          <p style="font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:24px;">Individuelle Lösung mit Chat- <em>und</em> Voice-Agenten — genau nach Ihrem Bedarf.</p>
-          <div style="display:flex;align-items:flex-end;gap:6px;">
-            <div class="pricing-price" style="font-size:2rem;">Auf Anfrage</div>
-          </div>
-          <div class="pricing-setup" style="color:rgba(255,255,255,.4);">Preis je nach Umfang</div>
-          
-          <hr class="pricing-divider">
-          <ul class="pricing-features">
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Voice Agents (Telefon, 24/7)</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Chat Agents (Website, WhatsApp &amp; mehr)</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Unbegrenzte Agents &amp; Kanäle</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Vollständige CRM- &amp; System-Anbindung</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Individuelle Gesprächs- &amp; Chat-Flows</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Mehrsprachigkeit auf Wunsch</li>
-            <li class="included"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>Dedicated Support &amp; laufende Optimierung</li>
-          </ul>
-          <button class="btn-primary" style="width:100%;justify-content:center;background:linear-gradient(135deg,#6366f1,#a78bfa);" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})">Jetzt anfragen</button>
+          <button class="pricing-btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})">Demo anfragen</button>
         </div>
       </div>
     </div>
 
     <div class="fade-up delay-300" style="max-width:760px;margin:48px auto 0;padding:28px 32px;border-radius:20px;background:linear-gradient(135deg,rgba(0,87,184,.16) 0%,rgba(26,111,212,.08) 100%);border:1px solid rgba(96,165,250,.2);text-align:center;">
       <div style="font-family:'Sora',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:8px;">14 Tage kostenlos testen</div>
-      <div style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:20px;">Testen Sie Dialopt unverbindlich in Ihrem eigenen Betrieb – ohne Kreditkarte und ohne langfristige Bindung.</div>
-      <a href="#contact" class="btn-primary" style="padding:11px 24px;font-size:.88rem;" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})">Kostenlos testen →</a>
+      <div style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:20px;">Für alle Pakete gilt eine 14-tägige kostenlose Testphase. Zusätzliche Nutzung über das inkludierte Kontingent hinaus wird separat geregelt.</div>
+      <a href="#contact" class="btn-primary" style="padding:11px 24px;font-size:.88rem;" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})">Demo anfragen →</a>
     </div>
   </div>
 </section>
@@ -1495,27 +1482,27 @@
       </div>
       <div class="faq-card fade-up delay-100">
         <h3>Wirkt der KI-Chatbot wie ein echter Mitarbeiter?</h3>
-        <p>Dialopt verwendet modernste KI-Sprachtechnologie, die natürliches, fließendes Deutsch im Chat erzeugt. Die meisten Besucher bemerken keinen Unterschied zu einem echten Mitarbeiter.</p>
+        <p>Dialopt nutzt moderne KI-Sprachtechnologie und antwortet in natürlichem, flüssigem Deutsch statt über starre Formularantworten. Ziel ist ein möglichst angenehmer und unkomplizierter Gesprächsverlauf für Ihre Besucher.</p>
       </div>
       <div class="faq-card fade-up delay-200">
         <h3>Was passiert, wenn ein Besucher komplexe Fragen hat?</h3>
-        <p>Dialopt ist darauf trainiert, häufige Fragen zu beantworten und Leads zu erfassen. Bei komplexen oder dringenden Anfragen leitet der Agent den Besucher automatisch an Sie oder einen Mitarbeiter weiter — per E-Mail-Benachrichtigung oder direkter Übergabe an Ihr Team.</p>
+        <p>Der Chatbot antwortet auf Basis des Unternehmenswissens, das Sie ihm zur Verfügung stellen. Bei Fragen, die darüber hinausgehen, macht er das transparent, statt eine falsche Antwort zu geben — so wissen Besucher, dass sie sich direkt an Sie wenden sollten.</p>
       </div>
       <div class="faq-card fade-up delay-200">
         <h3>Ist Dialopt DSGVO-konform?</h3>
-        <p>Dialopt wurde für einen datenschutzkonformen Einsatz entwickelt. Wir stellen Ihnen einen Auftragsverarbeitungsvertrag (AVV) zur Verfügung und unterstützen Sie bei der Datenschutzdokumentation.</p>
+        <p>Wir achten bei Entwicklung und Betrieb von Dialopt auf einen datenschutzbewussten Umgang mit Daten. Die konkrete datenschutzrechtliche Bewertung hängt von Ihrem individuellen Einsatz ab — sprechen Sie uns gerne direkt dazu an.</p>
       </div>
       <div class="faq-card fade-up delay-300">
         <h3>Kann ich Dialopt in meine bestehende Website einbinden?</h3>
-        <p>Dialopt lässt sich mit einem kurzen Code-Schnipsel in jede Website einbinden — egal ob WordPress, Shopify, Webflow oder eine individuell programmierte Seite. Für spezifische Systeme bieten wir individuelle Integrationen an.</p>
+        <p>Dialopt lässt sich über einen Code-Schnipsel in gängige Website-Systeme einbinden, zum Beispiel WordPress oder individuell programmierte Seiten. Bei Bedarf unterstützen wir Sie bei der technischen Einrichtung.</p>
       </div>
       <div class="faq-card fade-up delay-300">
         <h3>Was kostet Dialopt und gibt es eine Mindestlaufzeit?</h3>
-        <p>Unsere Tarife beginnen bei [PREIS]€/Monat. Es gibt keine Mindestlaufzeit — Sie können monatlich kündigen. Wir bieten außerdem eine 14-tägige kostenlose Testphase ohne Kreditkarte an.</p>
+        <p>Unsere Pakete beginnen bei 49€/Monat zuzüglich einmaliger Einrichtung. Für alle Pakete gilt eine 14-tägige kostenlose Testphase. Angaben zu Mindestlaufzeit und Kündigung klären wir gerne im persönlichen Gespräch.</p>
       </div>
       <div class="faq-card fade-up delay-400">
         <h3>Kann ich die Antworten des KI-Chatbots anpassen?</h3>
-        <p>Ja, vollständig. Sie können Chat-Flows, Antworten, Begrüßungen und Weiterleitungsregeln individuell konfigurieren. Unser Team hilft Ihnen dabei, den Agenten perfekt auf Ihren Betrieb abzustimmen.</p>
+        <p>Ja. Begrüßungsnachricht, Bot-Name sowie Design und Gesprächsführung lassen sich an Ihr Unternehmen anpassen — abhängig vom gewählten Paket. Unser Team unterstützt Sie bei der Einrichtung.</p>
       </div>
     </div>
     <div class="faq-footer fade-up delay-400">
