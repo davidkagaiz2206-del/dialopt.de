@@ -71,6 +71,7 @@
       'data-agent-id': 'agent_f86b295db73d6d6cc8081d907c',
       'data-title': 'Dialo',
       'data-bot-name': 'Dialo',
+      'data-logo-url': 'https://dialopt.de/dialo-logo.svg',
       'data-fab-text': 'Haben Sie Fragen?',
       'data-theme-color': '#0A1628',
       'data-component-color': '#0057B8',
