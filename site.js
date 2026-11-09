@@ -87,7 +87,7 @@
   // Browserfenstern wird es oben abgeschnitten. Höhe an den sichtbaren Bereich anpassen.
   var FIT_CSS = '[class*="_windowChat_"],[class*="_windowVoice_"],[class*="_windowChooser_"]{' +
     'max-height:calc(100vh - 108px)!important;max-height:calc(100dvh - 108px)!important}' +
-    'img[class*="_chatHeader_"]{height:30px!important;max-width:160px}';
+    'img[class*="_chatHeader_"]{height:25px!important;max-width:160px}';
   function fitRetell() {
     var tries = 0;
     var t = setInterval(function () {
