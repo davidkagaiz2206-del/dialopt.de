@@ -69,8 +69,8 @@
     var attrs = {
       'data-public-key': 'public_key_691222a80b49380157843',
       'data-agent-id': 'agent_f86b295db73d6d6cc8081d907c',
-      'data-title': 'Dialopt AI',
-      'data-bot-name': 'Dialopt AI',
+      'data-title': 'Dialo',
+      'data-bot-name': 'Dialo',
       'data-fab-text': 'Haben Sie Fragen?',
       'data-theme-color': '#0A1628',
       'data-component-color': '#0057B8',
@@ -126,7 +126,7 @@
     wrap.innerHTML =
       '<div class="chat-card" id="chat-card" role="dialog" aria-labelledby="chat-card-title" hidden>' +
         '<button class="chat-x" type="button" aria-label="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
-        '<p class="chat-card-title" id="chat-card-title">Dialopt AI – unser KI-Assistent</p>' +
+        '<p class="chat-card-title" id="chat-card-title">Dialo – unser KI-Assistent</p>' +
         '<p>Stellen Sie Ihre Fragen rund um die Uhr. Mit dem Start des Chats werden Daten an Retell AI (USA) übertragen und eine Schriftart von Google geladen.</p>' +
         '<button class="btn btn-primary chat-start" type="button">Chat starten</button>' +
         '<a class="chat-privacy" href="/datenschutz.html#ki-assistent">Mehr in der Datenschutzerklärung</a>' +
