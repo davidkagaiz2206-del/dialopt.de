@@ -63,6 +63,30 @@
     if (cfg.whiteLabel) a['data-white-label'] = cfg.whiteLabel;
     Object.keys(a).forEach(function (k) { s.setAttribute(k, a[k]); });
     document.body.appendChild(s);
+    fitRetell();
+  }
+
+  // Retell setzt das Chatfenster am PC auf feste 570px Höhe; bei niedrigen
+  // Browserfenstern wird es oben abgeschnitten. Höhe an den sichtbaren Bereich anpassen.
+  var FIT_CSS = '[class*="_windowChat_"],[class*="_windowVoice_"],[class*="_windowChooser_"]{' +
+    'max-height:calc(100vh - 108px)!important;max-height:calc(100dvh - 108px)!important}';
+  function fitRetell() {
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      var root = document.getElementById('retell-widget-root');
+      var hosts = root ? [root].concat([].slice.call(root.querySelectorAll('*'))) : [];
+      hosts.forEach(function (h) {
+        if (h.shadowRoot && !h.shadowRoot.querySelector('style[data-dialopt-fit]')) {
+          var st = document.createElement('style');
+          st.setAttribute('data-dialopt-fit', '');
+          st.textContent = FIT_CSS;
+          h.shadowRoot.appendChild(st);
+          clearInterval(t);
+        }
+      });
+      if (tries > 60) clearInterval(t);
+    }, 250);
   }
 
   function esc(t) { return String(t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
