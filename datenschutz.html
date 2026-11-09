@@ -9,18 +9,6 @@
   <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="/fonts.css" />
   <link rel="stylesheet" href="/site.css" />
-  <script
-    id="retell-widget"
-    src="https://dashboard.retellai.com/retell-widget-v2.js"
-    type="module"
-    data-public-key="public_key_691222a80b49380157843"
-    data-agent-id="agent_f86b295db73d6d6cc8081d907c"
-    data-fab-text="Brauchst du Hilfe?"
-    data-title="Dialopt AI"
-    data-bot-name="Dialopt AI"
-    data-popup-message="Willkommen bei Dialopt!"
-    data-color="#0057B8"
-  ></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -101,11 +89,14 @@ Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehö
     Die Übermittlung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer funktionierenden Kontaktmöglichkeit). Weitere Informationen finden Sie unter</p>
     <a href="https://formspree.io/legal/privacy-policy" target="_blank">formspree.io/legal/privacy-policy</a>.
 
-    <h3>KI-Assistent „Dialopt AI“ (Retell AI)</h3>
-    <p>Auf allen Seiten dieser Website binden wir den KI-Assistenten „Dialopt AI“ ein (Schaltfläche „Brauchst du Hilfe?“ unten rechts). Der Assistent wird von Retell AI, Inc. (USA) bereitgestellt. Beim Aufruf einer Seite wird das dafür nötige Programm von Servern von Retell AI geladen. Dabei werden technisch bedingt Ihre IP-Adresse, Browserinformationen sowie Datum und Uhrzeit des Abrufs an Retell AI übermittelt.</p>
-    <p>Wenn Sie den Assistenten öffnen und nutzen, werden außerdem die Inhalte Ihrer Unterhaltung verarbeitet: Ihre Texteingaben und, falls Sie die Sprachfunktion verwenden, Ihre Spracheingaben. Die Inhalte werden genutzt, um Ihre Fragen automatisiert zu beantworten. Bitte geben Sie im Gespräch keine sensiblen Daten (z. B. Gesundheits- oder Bankdaten) ein. Die Antworten werden von einer künstlichen Intelligenz erzeugt und können fehlerhaft sein.</p>
-    <p>Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, Besuchern jederzeit eine schnelle Antwort auf ihre Fragen zu ermöglichen) sowie, soweit Ihre Anfrage auf einen Vertragsschluss gerichtet ist, Art. 6 Abs. 1 lit. b DSGVO. Die Nutzung des Assistenten ist freiwillig. Die Daten werden auch auf Servern in den USA verarbeitet. Mit Retell AI haben wir einen Vertrag zur Auftragsverarbeitung (Data Processing Addendum) geschlossen; die Übermittlung in die USA erfolgt auf Grundlage der EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO). Weitere Informationen finden Sie in der Datenschutzerklärung von Retell AI:
+    <h3 id="ki-assistent">KI-Assistent „Dialopt AI“ (Retell AI)</h3>
+    <p>Auf dieser Website bieten wir den KI-Assistenten „Dialopt AI“ an (Schaltfläche „Haben Sie Fragen?“ unten rechts). Der Assistent wird von Retell AI, Inc. (USA) bereitgestellt. Er wird <strong>erst geladen, wenn Sie ausdrücklich auf „Chat starten“ klicken</strong>. Vorher werden keine Daten an Retell AI oder Google übertragen.</p>
+    <p>Mit dem Klick auf „Chat starten“ wird das Programm des Assistenten von Servern von Retell AI geladen. Dabei werden technisch bedingt Ihre IP-Adresse, Browserinformationen sowie Datum und Uhrzeit des Abrufs an Retell AI übermittelt. Der Assistent lädt außerdem eine Schriftart von Servern von Google, wodurch auch Google Ihre IP-Adresse erhält. Wenn Sie den Assistenten nutzen, werden zusätzlich die Inhalte Ihrer Unterhaltung verarbeitet: Ihre Texteingaben und, falls Sie die Sprachfunktion verwenden, Ihre Spracheingaben. Die Inhalte werden genutzt, um Ihre Fragen automatisiert zu beantworten. Bitte geben Sie im Gespräch keine sensiblen Daten (z. B. Gesundheits- oder Bankdaten) ein. Die Antworten werden von einer künstlichen Intelligenz erzeugt und können fehlerhaft sein.</p>
+    <p>In Ihrem Browser (Local Storage) werden gespeichert: Ihre Entscheidung, den Chat zu nutzen (damit der Assistent auf weiteren Seiten direkt verfügbar ist), sowie der Verlauf und eine Kennung Ihrer Unterhaltung, damit Sie das Gespräch fortsetzen können. Cookies werden dabei nicht gesetzt.</p>
+    <p>Rechtsgrundlage ist Ihre Einwilligung durch den Klick auf „Chat starten“ (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG) sowie, soweit Ihre Anfrage auf einen Vertragsschluss gerichtet ist, Art. 6 Abs. 1 lit. b DSGVO. Die Nutzung ist freiwillig. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen; dabei werden die gespeicherten Daten in Ihrem Browser gelöscht.</p>
+    <p>Die Daten werden auch auf Servern in den USA verarbeitet. Mit Retell AI haben wir einen Vertrag zur Auftragsverarbeitung (Data Processing Addendum) geschlossen; die Übermittlung in die USA erfolgt auf Grundlage der EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO). Weitere Informationen finden Sie in der Datenschutzerklärung von Retell AI:
     <a href="https://www.retellai.com/legal/privacy-policy" target="_blank">retellai.com/legal/privacy-policy</a>.</p>
+    <p><button type="button" class="revoke" data-chat-revoke>Einwilligung für den KI-Assistenten widerrufen</button></p>
   </div>
     
   <div class="card">
@@ -161,7 +152,7 @@ Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehö
 
   <div class="card">
     <h2>8. Cookies</h2>
-    <p>Unsere Website verwendet keine Tracking-Cookies. Es werden lediglich technisch notwendige Cookies verwendet, die für den Betrieb der Website erforderlich sind.</p>
+    <p>Unsere Website verwendet keine Tracking-Cookies. Es werden lediglich technisch notwendige Cookies verwendet, die für den Betrieb der Website erforderlich sind. Nur wenn Sie den KI-Assistenten starten, werden Daten im lokalen Speicher Ihres Browsers abgelegt (siehe „KI-Assistent“ oben).</p>
   </div>
 
   <div class="card">
@@ -199,5 +190,6 @@ Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehö
     <nav aria-label="Rechtliches"><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a></nav>
   </div>
 </footer>
+<script src="/site.js" defer></script>
 </body>
 </html>
