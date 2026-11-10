@@ -16,6 +16,18 @@
     });
   }
 
+  // Preise: monatlich / jährlich umschalten
+  document.querySelectorAll('.billing').forEach(function (group) {
+    var section = group.closest('section') || document.body;
+    group.querySelectorAll('.billing-opt').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var yearly = b.getAttribute('data-billing') === 'year';
+        section.classList.toggle('yearly', yearly);
+        group.querySelectorAll('.billing-opt').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+      });
+    });
+  });
+
   // Kontaktformular (Formspree)
   var form = document.getElementById('contact-form');
   if (form) {
