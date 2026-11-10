@@ -296,7 +296,12 @@ p { text-wrap: pretty; }
 .billing-opt[aria-pressed="true"] { background: var(--blue); color: #fff; }
 .billing-badge { font-size: .78rem; padding: 2px 7px; border-radius: 999px; background: #e8f1fc; color: var(--blue); }
 .billing-opt[aria-pressed="true"] .billing-badge { background: rgba(255,255,255,.2); color: #fff; }
-.price .amount.bill-y, .price .save.bill-y { display: none; }
+.price .amount.bill-y, .price .save.bill-y, .price .billed.bill-y, .billing-note { display: none; }
+.yearly .price .billed.bill-y { display: block; }
+.yearly .billing-note { display: block; }
+.price .billed { margin-top: 6px; font-size: .95rem; color: var(--ink-2); }
+.price.featured .billed { color: var(--on-blue-2); }
+.billing-note { margin: 20px auto 0; max-width: 62em; text-align: center; font-size: .92rem; color: var(--ink-2); }
 .yearly .price .amount.bill-m { display: none; }
 .yearly .price .amount.bill-y { display: flex; }
 .yearly .price .save.bill-y { display: block; }
@@ -472,3 +477,6 @@ p { text-wrap: pretty; }
 .security td .sub { display: block; color: var(--ink-3); font-size: .85rem; }
 .security .sec-small { color: var(--ink-3); font-size: .9rem; margin-top: 12px; }
 .security .sec-note { margin-top: 32px; border-left: 3px solid var(--blue); }
+.price .num, .price .per { white-space: nowrap; }
+.price .amount { flex-wrap: wrap; row-gap: 2px; }
+.prices.four .amount.bill-y .num { font-size: 2.1rem; }
