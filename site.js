@@ -96,7 +96,10 @@
     '[class*="_messages_"],[class*="_inputRow_"]{background:#fff!important}' +
     '[class*="_inputShell_"]{border-color:#c5d8f0!important}' +
     '[class*="_agent_"]{background:#e8f1fc!important;color:#0A1628!important}' +
-    '[class*="_user_"]{background:#0057B8!important;color:#fff!important}';
+    '[class*="_user_"]{background:#0057B8!important;color:#fff!important}' +
+    // Links in Bot-Antworten (siehe linkifyChat)
+    '.dl-md{font-size:0!important}.dl-md>a,.dl-md>br{display:none!important}' +
+    '.dl-msg a{color:#0057B8;font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer}';
   function fitRetell() {
     var tries = 0;
     var t = setInterval(function () {
@@ -109,11 +112,95 @@
           st.setAttribute('data-dialopt-fit', '');
           st.textContent = FIT_CSS;
           h.shadowRoot.appendChild(st);
+          linkifyChat(h.shadowRoot);
           clearInterval(t);
         }
       });
       if (tries > 60) clearInterval(t);
     }, 250);
+  }
+
+  // Retell zeigt Markdown-Links als Rohtext ("[hier](https://…)") und öffnet
+  // jede URL in einem neuen Tab. Hier werden Bot-Antworten neu dargestellt:
+  // [Preise](https://dialopt.de/telefonassistent.html#pricing) wird zum Link "Preise".
+  // Links auf dialopt.de öffnen im selben Tab und scrollen zur Stelle.
+  // Retells eigene Knoten bleiben unangetastet (nur per CSS ausgeblendet).
+  var MD_LINK = /\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s<]*[^\s<.,;:!?)\]])/g;
+  function samePath(a, b) { return a.replace(/\/index\.html$/, '/') === b.replace(/\/index\.html$/, '/'); }
+  function ownSite(u) { var h = u.host.replace(/^www\./, ''); return h === 'dialopt.de' || u.host === location.host; }
+  function chatLink(text, href, shadow) {
+    var u;
+    try { u = new URL(href); } catch (e) { return document.createTextNode(text); }
+    if (u.protocol !== 'https:' && u.protocol !== 'http:') return document.createTextNode(text);
+    var a = document.createElement('a');
+    a.textContent = text;
+    if (!ownSite(u)) {
+      a.href = u.href; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      return a;
+    }
+    a.href = u.pathname + u.search + u.hash;
+    a.addEventListener('click', function (e) {
+      var target = u.hash && document.getElementById(decodeURIComponent(u.hash.slice(1)));
+      if (!samePath(u.pathname, location.pathname) || !target) return; // normale Navigation im selben Tab
+      e.preventDefault();
+      if (window.innerWidth < 640) { // am Handy verdeckt das Chatfenster die Seite
+        var close = shadow.querySelector('[class*="_closeButton_"]');
+        if (close) close.click();
+      }
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.pushState(null, '', u.hash);
+    });
+    return a;
+  }
+  function rawText(msg) {
+    var out = '';
+    msg.childNodes.forEach(function (n) {
+      if (n.nodeType === 1 && n.classList.contains('dl-msg')) return;
+      out += n.nodeName === 'BR' ? '\n' : n.textContent;
+    });
+    return out;
+  }
+  function renderMsg(msg, shadow) {
+    var raw = rawText(msg);
+    if (msg._dlRaw === raw) return;
+    msg._dlRaw = raw;
+    var old = msg.querySelector(':scope > .dl-msg');
+    MD_LINK.lastIndex = 0;
+    if (!MD_LINK.test(raw)) {
+      if (old) old.remove();
+      msg.classList.remove('dl-md');
+      return;
+    }
+    if (!old) {
+      var cs = getComputedStyle(msg);
+      old = document.createElement('span');
+      old.className = 'dl-msg';
+      old.style.fontSize = cs.fontSize;
+      old.style.lineHeight = cs.lineHeight;
+      old.style.whiteSpace = 'pre-wrap';
+    }
+    old.textContent = '';
+    var last = 0, m;
+    MD_LINK.lastIndex = 0;
+    while ((m = MD_LINK.exec(raw))) {
+      if (m.index > last) old.appendChild(document.createTextNode(raw.slice(last, m.index)));
+      old.appendChild(m[1] ? chatLink(m[1], m[2], shadow) : chatLink(m[3], m[3], shadow));
+      last = MD_LINK.lastIndex;
+    }
+    if (last < raw.length) old.appendChild(document.createTextNode(raw.slice(last)));
+    msg.classList.add('dl-md');
+    msg.appendChild(old);
+  }
+  function linkifyChat(shadow) {
+    var queued = false;
+    function run() {
+      queued = false;
+      shadow.querySelectorAll('[class*="_message_"][class*="_agent_"]').forEach(function (msg) { renderMsg(msg, shadow); });
+    }
+    new MutationObserver(function () {
+      if (!queued) { queued = true; requestAnimationFrame(run); }
+    }).observe(shadow, { childList: true, subtree: true, characterData: true });
+    run();
   }
 
   var revoke = document.querySelector('[data-chat-revoke]');
