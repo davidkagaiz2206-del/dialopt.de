@@ -307,6 +307,7 @@ p { text-wrap: pretty; }
 .faq details[open] summary svg { transform: rotate(45deg); }
 .faq summary:hover { color: var(--blue); }
 .faq .answer { padding: 0 48px 24px 0; color: var(--ink-2); max-width: 44em; }
+.faq .answer a { color: var(--blue); text-underline-offset: 3px; }
 @media (max-width: 900px) { .faq-layout { grid-template-columns: 1fr; } .faq-layout .section-head { position: static; } }
 
 /* Kontakt */
@@ -444,3 +445,17 @@ p { text-wrap: pretty; }
 .legal .highlight { background: var(--paper-2); border-radius: var(--radius); padding: 18px 22px; color: var(--ink); max-width: 68ch; margin-bottom: 12px; }
 .legal .card { padding: 0; background: none; border: 0; }
 .legal .card + .card { margin-top: 8px; }
+
+/* Sicherheitsseite */
+.security .sec-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 16px; }
+.security .sec-fact { background: #fff; border: 1px solid var(--rule); border-top: 3px solid var(--blue); border-radius: var(--radius); padding: 20px 22px; }
+.security .sec-fact h3 { margin: 0 0 6px; font-size: 1.1rem; }
+.security .sec-fact p { font-size: .97rem; }
+.security .sec-table { overflow-x: auto; margin-top: 16px; border: 1px solid var(--rule); border-radius: var(--radius); background: #fff; }
+.security table { width: 100%; border-collapse: collapse; font-size: .95rem; min-width: 620px; }
+.security th, .security td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+.security th { background: var(--navy-2); color: #fff; font-weight: 600; }
+.security tbody tr:last-child td { border-bottom: 0; }
+.security td .sub { display: block; color: var(--ink-3); font-size: .85rem; }
+.security .sec-small { color: var(--ink-3); font-size: .9rem; margin-top: 12px; }
+.security .sec-note { margin-top: 32px; border-left: 3px solid var(--blue); }
