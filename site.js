@@ -28,6 +28,24 @@
     });
   });
 
+  // Kontaktformular: Anliegen (Test oder Demo) je nach geklicktem Button vorwählen
+  var intents = document.querySelectorAll('input[name="anliegen"]');
+  if (intents.length) {
+    var submitLabel = document.querySelector('#contact-form .submit-label');
+    var syncLabel = function () {
+      var on = document.querySelector('input[name="anliegen"]:checked');
+      if (on && submitLabel) submitLabel.textContent = on.getAttribute('data-submit');
+    };
+    intents.forEach(function (r) { r.addEventListener('change', syncLabel); });
+    document.querySelectorAll('[data-intent]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        var r = document.querySelector('input[name="anliegen"][data-key="' + a.getAttribute('data-intent') + '"]');
+        if (r) { r.checked = true; syncLabel(); }
+      });
+    });
+    syncLabel();
+  }
+
   // Kontaktformular (Formspree)
   var form = document.getElementById('contact-form');
   if (form) {

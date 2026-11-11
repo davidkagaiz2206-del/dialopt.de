@@ -370,6 +370,17 @@ p { text-wrap: pretty; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,87,184,.18); }
 .field input:user-invalid { border-color: #b42318; }
 .form-plate .btn { width: 100%; margin-top: 6px; }
+.intent { border: 0; padding: 0; margin: 0 0 18px; min-width: 0; }
+.intent legend { font-weight: 600; font-size: .95rem; margin-bottom: 7px; padding: 0; }
+.intent-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 560px) { .intent-opts { grid-template-columns: 1fr; } }
+.intent-opt { display: flex; gap: 10px; align-items: flex-start; padding: 14px 16px; background: #fff; border: 1.5px solid #c5d0dc; border-radius: var(--radius); cursor: pointer; transition: border-color .15s, background .15s, box-shadow .15s; }
+.intent-opt:hover { border-color: #94a3b8; }
+.intent-opt input { width: 18px; height: 18px; margin: 2px 0 0; flex: none; accent-color: var(--blue); }
+.intent-opt strong { display: block; font-size: .98rem; }
+.intent-opt small { display: block; margin-top: 3px; font-size: .88rem; line-height: 1.4; color: var(--ink-2); }
+.intent-opt:has(input:checked) { border-color: var(--blue); background: #e8f1fc; }
+.intent-opt:has(input:focus-visible) { box-shadow: 0 0 0 3px rgba(0,87,184,.18); }
 .form-privacy { margin-top: 14px; font-size: .9rem; color: var(--ink-3); }
 .form-privacy a { color: var(--blue); }
 .form-error { display: none; margin-bottom: 18px; padding: 12px 14px; border-radius: var(--radius); background: #fdecea; color: #8a1c12; font-weight: 500; }
