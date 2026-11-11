@@ -134,11 +134,12 @@
 
   // Retell zeigt Markdown-Links als Rohtext ("[hier](https://…)") und öffnet
   // jede URL in einem neuen Tab. Hier werden Bot-Antworten neu dargestellt:
-  // [Preise](https://dialopt.de/telefonassistent.html#pricing) wird zum Link "Preise".
+  // [Preise](https://dialopt.de/telefonassistent#pricing) wird zum Link "Preise".
   // Links auf dialopt.de öffnen im selben Tab und scrollen zur Stelle.
   // Retells eigene Knoten bleiben unangetastet (nur per CSS ausgeblendet).
   var MD_LINK = /\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s<]*[^\s<.,;:!?)\]])/g;
-  function samePath(a, b) { return a.replace(/\/index\.html$/, '/') === b.replace(/\/index\.html$/, '/'); }
+  function cleanPath(p) { return p.replace(/\/index\.html$/, '/').replace(/\.html$/, ''); }
+  function samePath(a, b) { return cleanPath(a) === cleanPath(b); }
   function ownSite(u) { var h = u.host.replace(/^www\./, ''); return h === 'dialopt.de' || u.host === location.host; }
   function chatLink(text, href, shadow) {
     var u;
@@ -239,7 +240,7 @@
         '<p class="chat-card-title" id="chat-card-title">Dialo – unser KI-Assistent</p>' +
         '<p>Stellen Sie Ihre Fragen rund um die Uhr. Mit dem Start des Chats werden Daten an Retell AI (USA) übertragen und eine Schriftart von Google geladen.</p>' +
         '<button class="btn btn-primary chat-start" type="button">Chat starten</button>' +
-        '<a class="chat-privacy" href="/datenschutz.html#ki-assistent">Mehr in der Datenschutzerklärung</a>' +
+        '<a class="chat-privacy" href="/datenschutz#ki-assistent">Mehr in der Datenschutzerklärung</a>' +
       '</div>' +
       '<button class="chat-fab" type="button" aria-expanded="false" aria-controls="chat-card">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v10H10l-4.5 4v-4H4z"/><path d="M8 9.5h8M8 12.5h5"/></svg>' +
