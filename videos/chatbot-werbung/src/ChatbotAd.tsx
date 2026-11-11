@@ -32,7 +32,7 @@ const C = {
   rule: "#d9e1ea",
   tint: "#e6eef8", // Markenblau 10 % auf Weiß (wie im echten Chatfenster)
   tintBorder: "#ccdcf1",
-  // Fiktiver Kunde: Hausverwaltung Lindenhof
+  // Fiktiver Kunde: Muster Hausverwaltung (Platzhalternamen, .example-Domain nach RFC 2606, Rufnummern aus dem BNetzA-Bereich fuer Film/Werbung)
   green: "#1f4d3a",
   greenSoft: "#e8f0eb",
 };
@@ -229,7 +229,7 @@ const Browser: React.FC = () => {
           }}
         >
           <LockIcon />
-          hv-lindenhof.de
+          musterverwaltung.example
         </div>
       </div>
 
@@ -262,7 +262,7 @@ const Page: React.FC = () => {
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <HouseMark size={48} />
           <div style={{ lineHeight: 1.05 }}>
-            <div style={{ fontSize: 28, fontWeight: 600, letterSpacing: -0.5 }}>Lindenhof</div>
+            <div style={{ fontSize: 28, fontWeight: 600, letterSpacing: -0.5 }}>Muster</div>
             <div style={{ fontSize: 16, color: C.ink3 }}>Hausverwaltung</div>
           </div>
         </div>
@@ -317,28 +317,28 @@ const Page: React.FC = () => {
         <div style={{ fontSize: 46, fontWeight: 600, letterSpacing: -1.2, marginTop: 8, paddingLeft: 14 }}>Ihre Ansprechpartner</div>
         <div style={{ display: "flex", flexDirection: "column", gap: 22, marginTop: 34 }}>
           <PersonCard
-            initials="SK"
-            name="Sabine Krämer"
+            initials="EM"
+            name="Erika Mustermann"
             role="Mietangelegenheiten & Verträge"
             phone="030 23125 412"
-            mail="kraemer@hv-lindenhof.de"
+            mail="mieter@musterverwaltung.example"
             hours="Mo bis Fr, 9 bis 16 Uhr"
           />
           <PersonCard
             highlight
-            initials="MW"
-            name="Markus Weber"
+            initials="MM"
+            name="Max Mustermann"
             role="Haustechnik & Notfälle"
             phone="030 23125 456"
-            mail="technik@hv-lindenhof.de"
+            mail="technik@musterverwaltung.example"
             hours="Notdienst rund um die Uhr"
           />
           <PersonCard
-            initials="JB"
-            name="Julia Brandt"
+            initials="TA"
+            name="Team Abrechnung"
             role="Nebenkosten & Abrechnung"
             phone="030 23125 431"
-            mail="brandt@hv-lindenhof.de"
+            mail="abrechnung@musterverwaltung.example"
             hours="Mo bis Do, 8 bis 15 Uhr"
           />
         </div>
@@ -414,7 +414,7 @@ const PersonCard: React.FC<{
 
 const Row: React.FC<{ icon: React.ReactNode; text: string; color?: string; weight?: number }> = ({ icon, text, color, weight }) => (
   <div style={{ display: "flex", alignItems: "center", gap: 12, color, fontWeight: weight }}>
-    {icon}
+    <span style={{ display: "flex", flexShrink: 0 }}>{icon}</span>
     <span>{text}</span>
   </div>
 );
@@ -496,7 +496,7 @@ const ChatHeader: React.FC = () => (
       <HouseMark size={40} />
     </div>
     <div style={{ flex: 1 }}>
-      <div style={{ fontSize: 26, fontWeight: 600, color: C.ink, letterSpacing: -0.4 }}>Lindenhof Assistent</div>
+      <div style={{ fontSize: 26, fontWeight: 600, color: C.ink, letterSpacing: -0.4 }}>Hausverwaltung Assistent</div>
       <div style={{ fontSize: 18, color: C.ink3, display: "flex", alignItems: "center", gap: 8, marginTop: 2 }}>
         <div style={{ width: 10, height: 10, borderRadius: 5, background: "#22c55e" }} />
         Online · antwortet sofort
@@ -517,7 +517,7 @@ const bubbleBase: React.CSSProperties = {
 };
 
 const REPLY_WORDS =
-  "Oh nein, das tut mir leid! Bei einem Heizungsausfall hilft Ihnen direkt unser Haustechniker Markus Weber weiter:".split(
+  "Oh nein, das tut mir leid! Bei einem Heizungsausfall hilft Ihnen direkt unser Haustechniker Max Mustermann weiter:".split(
     " ",
   );
 
@@ -545,7 +545,7 @@ const ChatMessages: React.FC = () => {
       }}
     >
       <div style={{ ...bubbleBase, background: C.tint, color: C.ink, borderBottomLeftRadius: 6 }}>
-        Hallo! Ich bin der digitale Assistent der Hausverwaltung Lindenhof. Wie kann ich Ihnen helfen?
+        Hallo! Ich bin der digitale Assistent der Muster Hausverwaltung. Wie kann ich Ihnen helfen?
       </div>
 
       {frame < T.send && (
@@ -633,7 +633,7 @@ const ChatMessages: React.FC = () => {
               <Row icon={<PhoneIcon color={C.blue} />} text="030 23125 456" weight={600} />
             </div>
             <div style={{ opacity: part(293), translate: `0px ${(1 - part(293)) * 10}px` }}>
-              <Row icon={<MailIcon color={C.blue} />} text="technik@hv-lindenhof.de" weight={600} />
+              <Row icon={<MailIcon color={C.blue} />} text="technik@musterverwaltung.example" weight={600} />
             </div>
           </div>
           <div
@@ -671,7 +671,7 @@ const LinkChip: React.FC = () => {
         scale: String(1 - press * 0.06),
       }}
     >
-      Zum Kontakt von Markus Weber
+      Zum Ansprechpartner
       <ArrowIcon color={hover > 0.5 ? "#fff" : C.blue} />
     </div>
   );
