@@ -15,6 +15,8 @@ import { loadFont } from "@remotion/fonts";
 for (const w of ["400", "500", "600"]) {
   loadFont({ family: "Geist", url: staticFile(`geist-${w}.woff2`), weight: w });
 }
+// Hintergrundmusik: null = nur Soundeffekte. Fuer einen Song z.B. "music/song.mp3" (Datei in public/music/).
+const MUSIC: string | null = null;
 const FONT = "Geist, 'Helvetica Neue', Arial, sans-serif";
 
 // Musik: 120 BPM, ein Schlag = 15 Frames. Alle Schnitte liegen auf Schlägen.
@@ -753,7 +755,7 @@ const Sounds: React.FC = () => {
   const ed = (n: number) => S.editor + n;
   return (
     <>
-      <Audio src={staticFile("sfx/beat.wav")} volume={0.55} />
+      {MUSIC && <Audio src={staticFile(MUSIC)} volume={0.55} />}
       {/* Hook */}
       <Sfx at={0} src="impact" volume={0.7} />
       {Array.from({ length: 10 }, (_, i) => (

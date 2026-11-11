@@ -16,6 +16,8 @@ import { loadFont } from "@remotion/fonts";
 for (const w of ["400", "500", "600"]) {
   loadFont({ family: "Geist", url: staticFile(`geist-${w}.woff2`), weight: w });
 }
+// Hintergrundmusik: null = nur Soundeffekte. Fuer einen Song z.B. "music/song.mp3" (Datei in public/music/).
+const MUSIC: string | null = null;
 const FONT = "Geist, 'Helvetica Neue', Arial, sans-serif";
 
 const C = {
@@ -623,7 +625,7 @@ const CLOCK_TICKS: number[] = (() => {
 
 const Sounds: React.FC = () => (
   <>
-    <Audio src={staticFile("sfx/beat-split.wav")} volume={0.5} />
+    {MUSIC && <Audio src={staticFile(MUSIC)} volume={0.5} />}
     <Sfx at={0} src="impact" volume={0.6} />
     <Sfx at={4} src="whoosh" volume={0.5} />
     <Sfx at={10} src="pop" volume={0.4} />
