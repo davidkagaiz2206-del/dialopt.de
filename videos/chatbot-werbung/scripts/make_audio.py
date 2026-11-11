@@ -78,7 +78,8 @@ def place(buf, clip, at):
         buf[i:j] += clip[: j - i]
 
 
-def beat_track(seconds=25.0):
+def beat_track(seconds=25.0, breakdown=(17.5, 19.0), sparse_until=0.0):
+    """breakdown: Pause vor dem Drop. sparse_until: bis dahin nur Kick, Hi-Hat und Flaechen (Spannung)."""
     n = int(seconds * SR)
     drums = np.zeros(n)
     bass = np.zeros(n)
@@ -91,13 +92,15 @@ def beat_track(seconds=25.0):
     for b in range(beats):
         tb = b * BEAT
         bar = (b // 4) % 4
-        # Kurze Pause vor dem Drop ins Outro (Outro startet bei 19 s)
-        breakdown = 17.5 <= tb < 19.0
-        if not breakdown:
-            place(drums, k, tb)
+        # Kurze Pause vor dem Drop ins Outro
+        pause = breakdown[0] <= tb < breakdown[1]
+        sparse = tb < sparse_until
+        if not pause:
+            place(drums, k * (0.6 if sparse else 1.0), tb)
             place(drums, h, tb + BEAT / 2)
-            if b % 2 == 1:
+            if b % 2 == 1 and not sparse:
                 place(drums, c, tb)
+        if not pause and not sparse:
             place(bass, tone(roots[bar], BEAT * 0.45, (1.0, 0.35, 0.12), 0.005, 0.08), tb + BEAT / 2)
         if b % 4 == 0:
             ch = sum(tone(f * (1 + d), BEAT * 4, (1.0, 0.2), 0.25, 0.6) for f in chords[bar] for d in (-0.003, 0.003))
@@ -135,6 +138,14 @@ def tick():
     return np.sin(2 * np.pi * 1900 * tt) * np.exp(-tt * 90)
 
 
+def clock_tick():
+    tt = t(0.07)
+    n = rng.standard_normal(len(tt))
+    click = (n - lowpass(n, 1500)) * np.exp(-tt * 160)
+    body = np.sin(2 * np.pi * 900 * tt) * np.exp(-tt * 110) * 0.6
+    return click + body
+
+
 def pop():
     tt = t(0.12)
     f = 300 + 900 * np.exp(-tt * 40)
@@ -148,4 +159,7 @@ if __name__ == "__main__":
     save("riser.wav", riser())
     save("tick.wav", tick(), 0.6)
     save("pop.wav", pop(), 0.7)
+    # Video 3 (Split-Screen): Spannung bis 16 s, Pause, Drop ins Outro bei 19 s
+    save("beat-split.wav", beat_track(26.0, breakdown=(16.0, 19.0), sparse_until=13.0))
+    save("clock.wav", clock_tick(), 0.7)
     print("ok")
