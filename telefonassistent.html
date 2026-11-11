@@ -282,17 +282,10 @@
           </fieldset>
           <div class="form-row">
             <div class="field"><label for="fname">Name</label><input type="text" id="fname" name="name" placeholder="Max Mustermann" autocomplete="name" required></div>
-            <div class="field"><label for="fcompany">Unternehmen <span class="opt">(optional)</span></label><input type="text" id="fcompany" name="company" placeholder="Muster GmbH" autocomplete="organization"></div>
+            <div class="field"><label for="fcompany">Unternehmen</label><input type="text" id="fcompany" name="company" placeholder="Muster GmbH" autocomplete="organization" required></div>
           </div>
           <div class="field"><label for="femail">E-Mail</label><input type="email" id="femail" name="email" placeholder="max@example.com" autocomplete="email" required></div>
-          <div class="field"><label for="findustry">Branche <span class="opt">(optional)</span></label>
-            <select id="findustry" name="industry">
-              <option value="">Bitte wählen …</option>
-              <option value="restaurant">Restaurant &amp; Gastronomie</option>
-              <option value="handwerk">Handwerk &amp; Dienstleistungen</option>
-              <option value="other">Sonstiges</option>
-            </select>
-          </div>
+          <div class="field"><label for="findustry">Branche</label><input type="text" id="findustry" name="industry" placeholder="z. B. Friseursalon, Elektriker, Zahnarztpraxis" required></div>
           <div class="field"><label for="fmessage">Nachricht <span class="opt">(optional)</span></label><textarea id="fmessage" name="message" rows="4" placeholder="Erzählen Sie uns von Ihren Anforderungen …"></textarea></div>
           <input type="hidden" name="_replyto" id="freplyto">
           <button type="submit" class="btn btn-primary"><svg><use href="#i-send"/></svg><span class="submit-label">Kostenlos testen</span></button>
