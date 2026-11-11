@@ -49,6 +49,9 @@
   // Kontaktformular (Formspree)
   var form = document.getElementById('contact-form');
   if (form) {
+    form.querySelectorAll('[required]').forEach(function (f) {
+      f.addEventListener('input', function () { if (f.value.trim()) f.setAttribute('aria-invalid', 'false'); });
+    });
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       var err = document.getElementById('form-error');
@@ -56,13 +59,23 @@
       var label = submit.innerHTML;
       err.classList.remove('visible');
 
-      var name = form.querySelector('#fname').value.trim();
-      var email = form.querySelector('#femail').value.trim();
-      if (!name || !email) {
-        err.textContent = 'Bitte geben Sie Ihren Namen und Ihre E-Mail-Adresse an.';
+      var missing = [];
+      form.querySelectorAll('[required]').forEach(function (f) {
+        var empty = !f.value.trim();
+        f.setAttribute('aria-invalid', empty ? 'true' : 'false');
+        if (empty) missing.push(f);
+      });
+      if (missing.length) {
+        var names = missing.map(function (f) {
+          var l = form.querySelector('label[for="' + f.id + '"]');
+          return l ? l.firstChild.textContent.trim() : f.name;
+        });
+        err.textContent = 'Bitte füllen Sie noch aus: ' + names.join(', ') + '.';
         err.classList.add('visible');
+        missing[0].focus();
         return;
       }
+      var email = form.querySelector('#femail').value.trim();
 
       submit.disabled = true;
       submit.innerHTML = '<span class="spin" aria-hidden="true"></span> Wird gesendet …';
