@@ -1,9 +1,10 @@
 /* Dialopt – Chatbot-Konfigurator
  * Zeigt nur Optionen, die das Retell-Widget (retell-widget-v2.js) wirklich kennt:
- * data-bot-name, data-title, data-logo-url, data-fab-text, data-theme-color,
- * data-component-color, data-popup-message, data-show-ai-popup,
- * data-show-ai-popup-time, data-chat-font-size sowie Chat- und Sprach-Agent.
+ * data-color, data-bot-name, data-title, data-logo-url, data-fab-text,
+ * data-popup-message, data-show-ai-popup, data-show-ai-popup-time,
+ * data-chat-font-size sowie Chat- und Sprach-Agent.
  * Die erste Nachricht ist die Begrüßung des Retell-Agenten.
+ * Nicht dabei, weil Retell es nicht kann: Hell/Dunkel, Position links.
  * Alles läuft lokal im Browser, es wird nichts an Retell übertragen.
  */
 (function () {
@@ -13,24 +14,19 @@
 
   function $(id) { return document.getElementById(id); }
   var pv = $('pv');
-  var DEFAULTS = {
-    botName: 'Dialo', title: 'Dialo', fabText: 'Haben Sie Fragen?',
-    theme: '#0A1628', accent: '#0057B8',
-    greet: 'Hallo! Wie kann ich Ihnen weiterhelfen?',
-    popupOn: true, popup: 'Fragen? Ich helfe Ihnen gerne weiter.', delay: 3,
-    size: 'default', mode: 'chat'
-  };
+  var DEF = { name: 'Ihr Assistent', fab: 'Haben Sie Fragen?', greet: 'Hallo! Wie kann ich Ihnen helfen?', popup: 'Fragen? Ich helfe Ihnen gerne weiter.', delay: 3 };
   var SIZES = { 'default': '14px', 'large': '16px', 'extra-large': '18px' };
   var SIZE_LABEL = { 'default': 'Normal', 'large': 'Groß', 'extra-large': 'Sehr groß' };
-  var logoData = null;
-  var popTimer = null;
-  var popKey = '';
+  var ICON_LABEL = { home: 'Haus', scissors: 'Schere', food: 'Besteck', shop: 'Tasche' };
+  var upload = null;
+  var popTimer = null, popKey = '';
 
-  function hex(v) {
-    v = String(v || '').trim();
-    if (v[0] !== '#') v = '#' + v;
-    if (/^#[0-9a-f]{3}$/i.test(v)) v = '#' + v[1] + v[1] + v[2] + v[2] + v[3] + v[3];
-    return /^#[0-9a-f]{6}$/i.test(v) ? v.toUpperCase() : null;
+  // Vorlagen-Icons als weißes SVG-Logo (so würden wir sie als data-logo-url hinterlegen)
+  function iconLogo(key) {
+    var svg = form.querySelector('.cfg-icons input[value="' + key + '"] + span svg');
+    if (!svg) return null;
+    var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">' + svg.innerHTML + '</svg>';
+    return 'data:image/svg+xml,' + encodeURIComponent(s);
   }
   function luminance(h) {
     var c = [1, 3, 5].map(function (i) {
@@ -42,13 +38,15 @@
   function radio(name) { var r = form.querySelector('input[name="' + name + '"]:checked'); return r ? r.value : ''; }
 
   function state() {
+    var c = radio('color');
+    var logo = radio('logo');
     return {
-      botName: $('cfg-bot').value.trim() || DEFAULTS.botName,
-      title: $('cfg-title').value.trim(),
-      fabText: $('cfg-fab').value.trim(),
-      theme: hex($('cfg-theme-hex').value) || hex($('cfg-theme').value),
-      accent: hex($('cfg-accent-hex').value) || hex($('cfg-accent').value),
-      greet: $('cfg-greet').value.trim(),
+      color: (c === 'custom' ? $('cfg-custom').value : c).toUpperCase(),
+      logo: logo,
+      logoSrc: logo === 'upload' ? upload : iconLogo(logo),
+      name: $('cfg-bot').value.trim() || DEF.name,
+      fab: $('cfg-fab').value.trim(),
+      greet: $('cfg-greet').value.trim() || DEF.greet,
       popupOn: $('cfg-popup-on').checked,
       popup: $('cfg-popup').value.trim(),
       delay: +$('cfg-delay').value,
@@ -59,41 +57,39 @@
 
   function render() {
     var s = state();
-    pv.style.setProperty('--theme', s.theme);
-    pv.style.setProperty('--accent', s.accent);
+    // data-color setzt bei Retell Haupt- und Akzentfarbe zugleich
+    pv.style.setProperty('--theme', s.color);
+    pv.style.setProperty('--accent', s.color);
     pv.style.setProperty('--fs', SIZES[s.size] || SIZES['default']);
+    form.style.setProperty('--pick', s.color);
+    form.querySelector('.cfg-custom span').style.setProperty('--c', $('cfg-custom').value);
 
-    $('pv-title').textContent = s.title || s.botName;
-    $('pv-fab-text').textContent = s.fabText || 'Need support?';
-    $('pv-pop-name').textContent = s.botName;
-    $('pv-greet').textContent = s.greet || DEFAULTS.greet;
-    $('pv-greet').hidden = false;
+    $('pv-title').textContent = s.name;
+    $('pv-fab-text').textContent = s.fab || 'Need support?';
+    $('pv-pop-name').textContent = s.name;
+    $('pv-greet').textContent = s.greet;
     $('pv-tabs').hidden = s.mode !== 'both';
 
     var logo = $('pv-logo'), fabLogo = $('pv-fab-logo');
-    logo.hidden = fabLogo.hidden = !logoData;
-    $('pv-fab-icon').style.display = logoData ? 'none' : '';
-    if (logoData) { logo.src = logoData; fabLogo.src = logoData; }
-    $('cfg-logo-reset').hidden = !logoData;
+    logo.hidden = fabLogo.hidden = !s.logoSrc;
+    $('pv-fab-icon').style.display = s.logoSrc ? 'none' : '';
+    if (s.logoSrc) { logo.src = s.logoSrc; fabLogo.src = s.logoSrc; }
+    $('cfg-logo-hint').hidden = s.logo !== 'upload';
 
-    $('cfg-contrast').hidden = luminance(s.theme) < 0.45;
+    $('cfg-contrast').hidden = luminance(s.color) < 0.45;
     $('cfg-popup-fields').hidden = !s.popupOn;
     $('cfg-delay-out').textContent = s.delay;
-
-    form.querySelectorAll('.cfg-presets button').forEach(function (b) {
-      b.setAttribute('aria-pressed', b.getAttribute('data-theme') === s.theme && b.getAttribute('data-accent') === s.accent ? 'true' : 'false');
-    });
 
     schedulePopup(s);
     if (!$('fconfig').disabled) attach();
   }
 
-  // Popup erscheint wie bei Retell nur, wenn das Fenster zu ist, nach der eingestellten Zeit.
+  // Popup erscheint wie bei Retell nur bei geschlossenem Fenster, nach der eingestellten Zeit.
   function schedulePopup(s) {
-    var key = [s.popupOn, s.popup, s.delay, s.botName].join('|');
     var pop = $('pv-pop');
     if (!s.popupOn || !s.popup || !$('pv-win').hidden) { clearTimeout(popTimer); pop.hidden = true; popKey = ''; return; }
     $('pv-pop-text').textContent = s.popup;
+    var key = [s.popup, s.delay].join('|');
     if (key === popKey) return;
     popKey = key;
     clearTimeout(popTimer);
@@ -111,53 +107,46 @@
   $('pv-close').addEventListener('click', function () { setOpen(false); $('pv-fab').focus(); });
   $('pv-pop').addEventListener('click', function () { setOpen(true); });
 
-  // Farbfelder und Hex-Eingabe synchron halten
-  [['cfg-theme', 'cfg-theme-hex'], ['cfg-accent', 'cfg-accent-hex']].forEach(function (p) {
-    var picker = $(p[0]), text = $(p[1]);
-    picker.addEventListener('input', function () { text.value = picker.value.toUpperCase(); text.removeAttribute('aria-invalid'); render(); });
-    text.addEventListener('input', function () {
-      var v = hex(text.value);
-      text.setAttribute('aria-invalid', v ? 'false' : 'true');
-      if (v) { picker.value = v.toLowerCase(); render(); }
-    });
-    text.addEventListener('blur', function () { text.value = picker.value.toUpperCase(); text.removeAttribute('aria-invalid'); });
-  });
-  form.querySelectorAll('.cfg-presets button').forEach(function (b) {
-    b.addEventListener('click', function () {
-      setColor('theme', b.getAttribute('data-theme'));
-      setColor('accent', b.getAttribute('data-accent'));
-      render();
-    });
-  });
-  function setColor(which, v) { $('cfg-' + which).value = v.toLowerCase(); $('cfg-' + which + '-hex').value = v.toUpperCase(); }
+  // Eigene Farbe: Klick auf den Farbkreis wählt ihn aus und öffnet den Farbwähler
+  $('cfg-custom').addEventListener('input', function () { form.querySelector('input[name="color"][value="custom"]').checked = true; render(); });
+  $('cfg-custom').addEventListener('click', function () { form.querySelector('input[name="color"][value="custom"]').checked = true; render(); });
 
-  form.addEventListener('input', function (e) { if (!/^cfg-(theme|accent)/.test(e.target.id || '')) render(); });
-  form.addEventListener('change', function (e) { if (e.target.type === 'radio' || e.target.type === 'checkbox') render(); });
-
-  // Logo nur lokal als Vorschau
+  // Eigenes Logo: nur lokal als Vorschau
+  var uploadRadio = form.querySelector('input[name="logo"][value="upload"]');
+  var lastLogo = 'home';
+  uploadRadio.addEventListener('click', function () { $('cfg-logo').click(); });
+  form.querySelectorAll('input[name="logo"]').forEach(function (r) {
+    r.addEventListener('change', function () { if (r.value !== 'upload') lastLogo = r.value; });
+  });
   $('cfg-logo').addEventListener('change', function () {
     var f = this.files && this.files[0];
-    if (!f) return;
-    if (f.size > 2 * 1024 * 1024) { alert('Bitte ein Logo unter 2 MB wählen.'); this.value = ''; return; }
-    var r = new FileReader();
-    r.onload = function () { logoData = r.result; render(); };
-    r.readAsDataURL(f);
+    if (!f) { if (!upload) backToLast(); return; }
+    if (f.size > 2 * 1024 * 1024) { alert('Bitte ein Logo unter 2 MB wählen.'); this.value = ''; if (!upload) backToLast(); return; }
+    var rd = new FileReader();
+    rd.onload = function () { upload = rd.result; uploadRadio.checked = true; render(); };
+    rd.readAsDataURL(f);
   });
-  $('cfg-logo-reset').addEventListener('click', function () { logoData = null; $('cfg-logo').value = ''; render(); });
+  // Dialog abgebrochen, ohne dass es schon ein Logo gibt: vorherige Auswahl zurück
+  window.addEventListener('focus', function () {
+    setTimeout(function () { if (uploadRadio.checked && !upload) backToLast(); }, 400);
+  });
+  function backToLast() { form.querySelector('input[name="logo"][value="' + lastLogo + '"]').checked = true; render(); }
+
+  form.addEventListener('input', render);
+  form.addEventListener('change', render);
 
   $('cfg-reset').addEventListener('click', function () {
-    $('cfg-bot').value = DEFAULTS.botName;
-    $('cfg-title').value = DEFAULTS.title;
-    $('cfg-fab').value = DEFAULTS.fabText;
-    setColor('theme', DEFAULTS.theme);
-    setColor('accent', DEFAULTS.accent);
-    $('cfg-greet').value = DEFAULTS.greet;
-    $('cfg-popup-on').checked = DEFAULTS.popupOn;
-    $('cfg-popup').value = DEFAULTS.popup;
-    $('cfg-delay').value = DEFAULTS.delay;
+    form.querySelector('input[name="color"]').checked = true;
+    form.querySelector('input[name="logo"][value="home"]').checked = true;
     form.querySelector('input[name="size"][value="default"]').checked = true;
     form.querySelector('input[name="mode"][value="chat"]').checked = true;
-    logoData = null; $('cfg-logo').value = '';
+    $('cfg-bot').value = '';
+    $('cfg-fab').value = DEF.fab;
+    $('cfg-greet').value = DEF.greet;
+    $('cfg-popup-on').checked = true;
+    $('cfg-popup').value = DEF.popup;
+    $('cfg-delay').value = DEF.delay;
+    upload = null; lastLogo = 'home'; $('cfg-logo').value = '';
     render();
   });
 
@@ -165,13 +154,11 @@
   function summary() {
     var s = state();
     return [
-      'Bot-Name: ' + s.botName,
-      'Titel: ' + (s.title || s.botName),
-      'Logo: ' + (logoData ? 'ja (wird per E-Mail nachgereicht)' : 'nein'),
-      'Button-Text: ' + (s.fabText || '(Standard)'),
-      'Hauptfarbe: ' + s.theme,
-      'Akzentfarbe: ' + s.accent,
-      'Erste Nachricht: ' + (s.greet || DEFAULTS.greet),
+      'Name: ' + s.name,
+      'Farbe: ' + s.color,
+      'Logo: ' + (s.logo === 'upload' ? 'eigenes (wird per E-Mail nachgereicht)' : 'Icon ' + ICON_LABEL[s.logo]),
+      'Button-Text: ' + (s.fab || '(Standard)'),
+      'Erste Nachricht: ' + s.greet,
       'Popup: ' + (s.popupOn && s.popup ? '"' + s.popup + '" nach ' + s.delay + ' s' : 'aus'),
       'Schriftgröße: ' + SIZE_LABEL[s.size],
       'Funktionen: ' + (s.mode === 'both' ? 'Chat + Sprache' : 'Nur Chat')
@@ -182,7 +169,7 @@
     f.disabled = false;
     f.value = summary();
     $('cfg-attached').hidden = false;
-    $('cfg-attached-logo').hidden = !logoData;
+    $('cfg-attached-logo').hidden = radio('logo') !== 'upload';
   }
   $('cfg-send').addEventListener('click', attach);
   $('cfg-detach').addEventListener('click', function () {

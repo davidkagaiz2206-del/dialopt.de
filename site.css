@@ -599,3 +599,40 @@ p { text-wrap: pretty; }
 .pv img[hidden] { display: none; }
 .chat-gate { transition: opacity .2s var(--ease); }
 .cfg-in-view .chat-gate { opacity: 0; pointer-events: none; }
+/* Konfigurator im Stil der Werbung */
+.cfg-panel { border-radius: 18px; box-shadow: 0 24px 48px -32px rgba(10,22,40,.35); }
+.cfg-block { margin-bottom: 22px; min-width: 0; }
+.cfg-block .cfg-label { display: block; color: var(--ink-2); margin-bottom: 12px; }
+.cfg-row { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0 28px; align-items: start; }
+@media (max-width: 560px) { .cfg-row { grid-template-columns: 1fr; } }
+.cfg-row .field { gap: 0; }
+.cfg-row .field input { min-height: 48px; border-radius: 12px; }
+.cfg-swatches, .cfg-icons { display: flex; flex-wrap: wrap; gap: 12px; }
+.cfg-swatches label, .cfg-icons label { position: relative; cursor: pointer; }
+.cfg-swatches input[type="radio"], .cfg-icons input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.cfg-swatches em, .cfg-icons em { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.cfg-swatches span { display: block; width: 44px; height: 44px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 3px #fff, 0 0 0 3px transparent; transition: box-shadow .15s, transform .15s; }
+.cfg-swatches label:hover span { transform: scale(1.06); }
+.cfg-swatches input:checked + span { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--c); }
+.cfg-swatches input:focus-visible + span { outline: 2px solid var(--blue-light); outline-offset: 7px; }
+.cfg-custom span { position: relative; overflow: hidden; background: conic-gradient(#ef4444, #f59e0b, #22c55e, #06b6d4, #6366f1, #d946ef, #ef4444); --c: var(--ink-3); }
+.cfg-custom span input[type="color"] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; border: 0; padding: 0; }
+.cfg-custom input[type="radio"] { pointer-events: none; }
+.cfg-icons span { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: var(--paper-2); color: var(--ink-2); transition: background .15s, color .15s; }
+.cfg-icons svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.cfg-icons label:hover span { background: #e2e8f0; }
+.cfg-icons input:checked + span { background: var(--pick, var(--blue)); color: #fff; }
+.cfg-icons input:focus-visible + span { outline: 2px solid var(--blue-light); outline-offset: 3px; }
+.cfg-icons + input + .cfg-hint { display: block; margin-top: 8px; }
+.cfg-more { border-top: 1px solid var(--rule); padding-top: 4px; margin-bottom: 22px; }
+.cfg-more summary { list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 14px 0; font-weight: 600; cursor: pointer; }
+.cfg-more summary::-webkit-details-marker { display: none; }
+.cfg-more summary svg { width: 18px; height: 18px; transition: transform .2s var(--ease); }
+.cfg-more[open] summary svg { transform: rotate(45deg); }
+.cfg-more .field { margin-bottom: 14px; }
+.cfg-more .field input:not([type]), .cfg-more .field textarea { min-height: 44px; padding: 9px 12px; }
+.cfg-more .field textarea { min-height: 64px; }
+.cfg-seg input:checked + span { background: var(--pick, var(--blue)); }
+.pv-win { border-radius: 18px; }
+.pv-head .pv-logo { height: 28px; }
+.cfg-hint[hidden] { display: none !important; }
