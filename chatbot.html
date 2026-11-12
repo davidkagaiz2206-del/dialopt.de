@@ -42,6 +42,7 @@
       <ul class="nav" id="nav">
         <li><a href="#problem">Problem</a></li>
         <li><a href="#solution">Lösung</a></li>
+        <li><a href="#konfigurator">Konfigurator</a></li>
         <li><a href="#how-it-works">So funktioniert's</a></li>
         <li><a href="#pricing">Preise</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -106,6 +107,127 @@
         <div><dt>Natürliches Deutsch</dt><dd>Der Chatbot kommuniziert in natürlichem Deutsch statt über ein starres Formular.</dd></div>
         <div><dt>Einfache Einbindung</dt><dd>Der Chatbot wird direkt auf Ihrer Website eingebunden. Die technische Einrichtung übernehmen wir für Sie.</dd></div>
       </dl>
+    </div>
+  </section>
+
+  <section class="section on-paper-2" id="konfigurator" aria-labelledby="h-config">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="h-config">Gestalten Sie Ihren Chatbot selbst</h2>
+        <p>Probieren Sie aus, wie Dialopt auf Ihrer Website aussehen kann. Sie sehen hier nur Einstellungen, die das Chat-Widget tatsächlich unterstützt. Was hier geht, können wir für Sie genauso umsetzen.</p>
+      </div>
+      <div class="cfg">
+        <form class="cfg-panel" id="cfg-form" onsubmit="return false" aria-label="Chatbot konfigurieren">
+          <div class="cfg-block">
+            <span class="cfg-label" id="cfg-color-l">Farbe</span>
+            <div class="cfg-swatches" role="radiogroup" aria-labelledby="cfg-color-l">
+              <label style="--c:#0057B8"><input type="radio" name="color" value="#0057B8" checked><span></span><em>Blau</em></label>
+              <label style="--c:#DB2777"><input type="radio" name="color" value="#DB2777"><span></span><em>Pink</em></label>
+              <label style="--c:#16A34A"><input type="radio" name="color" value="#16A34A"><span></span><em>Grün</em></label>
+              <label style="--c:#7C3AED"><input type="radio" name="color" value="#7C3AED"><span></span><em>Violett</em></label>
+              <label style="--c:#EA580C"><input type="radio" name="color" value="#EA580C"><span></span><em>Orange</em></label>
+              <label style="--c:#0F766E"><input type="radio" name="color" value="#0F766E"><span></span><em>Petrol</em></label>
+              <label class="cfg-custom" title="Eigene Farbe"><input type="radio" name="color" value="custom"><span><input type="color" id="cfg-custom" value="#0a1628" aria-label="Eigene Farbe wählen"></span><em>Eigene</em></label>
+            </div>
+            <p class="cfg-warn" id="cfg-contrast" hidden>Diese Farbe ist sehr hell. Weiße Schrift darauf ist schlecht lesbar, wählen Sie lieber einen dunkleren Ton.</p>
+          </div>
+
+          <div class="cfg-row cfg-row-2">
+            <div class="cfg-block">
+              <span class="cfg-label" id="cfg-design-l">Design</span>
+              <div class="cfg-seg cfg-pill" role="radiogroup" aria-labelledby="cfg-design-l">
+                <label><input type="radio" name="design" value="light" checked><span>Hell</span></label>
+                <label><input type="radio" name="design" value="dark"><span>Dunkel</span></label>
+              </div>
+            </div>
+            <div class="cfg-block field">
+              <label class="cfg-label" for="cfg-bot">Name</label>
+              <input id="cfg-bot" maxlength="24" placeholder="Ihr Assistent" value="">
+            </div>
+          </div>
+
+          <div class="cfg-block">
+            <span class="cfg-label" id="cfg-logo-l">Logo</span>
+            <div class="cfg-icons" role="radiogroup" aria-labelledby="cfg-logo-l">
+              <label title="Haus"><input type="radio" name="logo" value="home" checked><span><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></svg></span><em>Haus</em></label>
+              <label title="Friseur"><input type="radio" name="logo" value="scissors"><span><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5L20 18M8.5 16.5L20 6"/></svg></span><em>Schere</em></label>
+              <label title="Gastronomie"><input type="radio" name="logo" value="food"><span><svg viewBox="0 0 24 24"><path d="M6 3v7a2 2 0 002 2v9M10 3v7a2 2 0 01-2 2M8 3v6M17 21V3c-2 1-3 4-3 8h3"/></svg></span><em>Besteck</em></label>
+              <label title="Shop"><input type="radio" name="logo" value="shop"><span><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg></span><em>Tasche</em></label>
+              <label title="Eigenes Logo hochladen" class="cfg-upload"><input type="radio" name="logo" value="upload"><span><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg></span><em>Eigenes</em></label>
+            </div>
+            <input type="file" id="cfg-logo" accept="image/png,image/jpeg,image/svg+xml,image/webp" hidden>
+            <small class="cfg-hint" id="cfg-logo-hint" hidden>Ihr Logo bleibt in Ihrem Browser und wird nicht hochgeladen.</small>
+          </div>
+
+          <details class="cfg-more">
+            <summary>Weitere Einstellungen<svg><use href="#i-plus"/></svg></summary>
+            <div class="field"><label for="cfg-fab">Text auf dem Chat-Button</label><input id="cfg-fab" maxlength="32" value="Haben Sie Fragen?"></div>
+            <div class="field"><label for="cfg-greet">Erste Nachricht im Chat</label><textarea id="cfg-greet" rows="2" maxlength="200">Hallo! Wie kann ich Ihnen helfen?</textarea></div>
+            <label class="cfg-switch"><input type="checkbox" id="cfg-popup-on" checked><span>Popup-Nachricht neben dem Button <em class="cfg-tier">ab Professional</em></span></label>
+            <div class="cfg-popup" id="cfg-popup-fields">
+              <div class="field"><label for="cfg-popup">Popup-Text</label><input id="cfg-popup" maxlength="80" value="Fragen? Ich helfe Ihnen gerne weiter."></div>
+              <div class="field">
+                <label for="cfg-delay">Erscheint nach <output id="cfg-delay-out" for="cfg-delay">3</output> Sekunden</label>
+                <input type="range" id="cfg-delay" min="0" max="30" step="1" value="3">
+              </div>
+            </div>
+            <div class="field">
+              <span class="cfg-label" id="cfg-size-l">Schriftgröße im Chat <em class="cfg-tier">ab Professional</em></span>
+              <div class="cfg-seg" role="radiogroup" aria-labelledby="cfg-size-l">
+                <label><input type="radio" name="size" value="default" checked><span>Normal</span></label>
+                <label><input type="radio" name="size" value="large"><span>Groß</span></label>
+                <label><input type="radio" name="size" value="extra-large"><span>Sehr groß</span></label>
+              </div>
+            </div>
+            <div class="field">
+              <span class="cfg-label" id="cfg-mode-l">Funktionen</span>
+              <div class="cfg-seg" role="radiogroup" aria-labelledby="cfg-mode-l">
+                <label><input type="radio" name="mode" value="chat" checked><span>Nur Chat</span></label>
+                <label><input type="radio" name="mode" value="both"><span>Chat + Sprache</span></label>
+              </div>
+              <small class="cfg-hint">Chat + Sprache: Besucher können auch direkt im Browser mit dem Assistenten sprechen (ab Professional).</small>
+            </div>
+          </details>
+
+          <div class="cfg-actions">
+            <a class="btn btn-primary" href="#contact" id="cfg-send">Mit dieser Konfiguration anfragen <svg><use href="#i-arrow"/></svg></a>
+            <button type="button" class="cfg-link" id="cfg-reset">Zurücksetzen</button>
+          </div>
+        </form>
+
+        <div class="cfg-stage" aria-label="Vorschau">
+          <div class="cfg-stage-bar"><span></span><span></span><span></span><em>ihre-website.de</em></div>
+          <div class="cfg-site" aria-hidden="true">
+            <div class="cfg-site-line w60"></div><div class="cfg-site-line w40"></div>
+            <div class="cfg-site-block"></div>
+            <div class="cfg-site-line w80"></div><div class="cfg-site-line w70"></div><div class="cfg-site-line w50"></div>
+          </div>
+
+          <div class="pv" id="pv">
+            <div class="pv-win" id="pv-win" hidden>
+              <div class="pv-head">
+                <img class="pv-logo" id="pv-logo" alt="" hidden>
+                <strong class="pv-title" id="pv-title">Ihr Assistent</strong>
+                <button type="button" class="pv-close" id="pv-close" aria-label="Vorschau-Chat schließen"><svg><use href="#i-close"/></svg></button>
+              </div>
+              <div class="pv-tabs" id="pv-tabs" hidden><span class="on">Chat</span><span>Sprache</span></div>
+              <div class="pv-msgs" id="pv-msgs">
+                <div class="pv-msg bot" id="pv-greet">Hallo! Wie kann ich Ihnen helfen?</div>
+                <div class="pv-msg user">Habt ihr heute geöffnet?</div>
+                <div class="pv-msg bot">Ja, heute sind wir bis 18 Uhr für Sie da!</div>
+              </div>
+              <div class="pv-input"><span>Nachricht schreiben …</span><i class="pv-send"><svg><use href="#i-send"/></svg></i></div>
+            </div>
+            <div class="pv-pop" id="pv-pop" hidden><b id="pv-pop-name">Ihr Assistent</b><span id="pv-pop-text"></span></div>
+            <button type="button" class="pv-fab" id="pv-fab" aria-expanded="false" aria-controls="pv-win">
+              <img id="pv-fab-logo" alt="" hidden>
+              <svg id="pv-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v10H10l-4.5 4v-4H4z"/><path d="M8 9.5h8M8 12.5h5"/></svg>
+              <span id="pv-fab-text">Haben Sie Fragen?</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <p class="cfg-note">Vereinfachte Vorschau. Das fertige Widget kann im Detail leicht abweichen. Nicht möglich sind zum Beispiel eine Platzierung links, eigene Schriftarten oder ein Online-Status im Chatfenster.</p>
     </div>
   </section>
 
@@ -265,6 +387,11 @@
           </div>
           <div class="field"><label for="fmessage">Nachricht <span class="opt">(optional)</span></label><textarea id="fmessage" name="message" rows="4" placeholder="Erzählen Sie uns von Ihren Anforderungen …"></textarea></div>
           <input type="hidden" name="_replyto" id="freplyto">
+          <input type="hidden" name="konfiguration" id="fconfig" disabled>
+          <div class="cfg-attached" id="cfg-attached" hidden>
+            <svg><use href="#i-check"/></svg>
+            <div><strong>Ihre Chatbot-Konfiguration wird mitgeschickt.</strong> <span id="cfg-attached-logo" hidden>Ihr Logo senden Sie uns bitte per E-Mail.</span> <button type="button" class="cfg-link" id="cfg-detach">Nicht mitschicken</button></div>
+          </div>
           <button type="submit" class="btn btn-primary"><svg><use href="#i-send"/></svg>Demo anfragen</button>
           <p class="form-privacy">Wir behandeln Ihre Daten vertraulich. Lesen Sie unsere <a href="/datenschutz">Datenschutzerklärung</a>.</p>
         </form>
@@ -282,5 +409,6 @@
 </footer>
 
 <script src="/site.js" defer></script>
+<script src="/konfigurator.js" defer></script>
 </body>
 </html>
