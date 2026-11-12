@@ -636,3 +636,25 @@ p { text-wrap: pretty; }
 .pv-win { border-radius: 18px; }
 .pv-head .pv-logo { height: 28px; }
 .cfg-hint[hidden] { display: none !important; }
+/* Vorschau wie Retell + Dialopt-Farbschicht (embed/chat.js) */
+.cfg-row-2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+@media (max-width: 560px) { .cfg-row-2 { grid-template-columns: 1fr; } }
+.cfg-pill { border: 0; background: var(--paper-2); border-radius: 999px; padding: 4px; flex-wrap: nowrap; }
+.cfg-pill label + label span { border-left: 0; }
+.cfg-pill span { border-radius: 999px; padding: 10px 12px; font-weight: 600; }
+.pv-head { background: color-mix(in srgb, var(--accent) 10%, #fff); color: #12203b; border-bottom: 1px solid color-mix(in srgb, var(--accent) 20%, #fff); }
+.pv-logo { height: 30px; max-width: 200px; }
+.pv-close { background: #fff; color: var(--accent); }
+.pv-msg.bot { background: color-mix(in srgb, var(--accent) 10%, #fff); }
+.pv-input { border-color: color-mix(in srgb, var(--accent) 25%, #fff); }
+.pv.dark .pv-win { background: #161b26; border-color: #2a3242; }
+.pv.dark .pv-head { background: color-mix(in srgb, var(--accent) 22%, #161b26); color: #e7eaf0; border-bottom-color: #2a3242; }
+.pv.dark .pv-close { background: #2a3242; color: #c9d0db; }
+.pv.dark .pv-tabs { border-bottom-color: #2a3242; }
+.pv.dark .pv-tabs span { color: #9aa3b2; }
+.pv.dark .pv-tabs .on { color: #fff; }
+.pv.dark .pv-msg.bot { background: #232b39; color: #e7eaf0; }
+.pv.dark .pv-input { background: #1f2633; border-color: #333c4d; color: #8b94a5; }
+.pv.dark .pv-pop { background: #1f2633; color: #e7eaf0; border-color: #2a3242; }
+.pv.dark .pv-pop b { color: #9aa3b2; }
+.cfg-stage.dark .cfg-site { opacity: .9; }

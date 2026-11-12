@@ -4,7 +4,8 @@
  * data-popup-message, data-show-ai-popup, data-show-ai-popup-time,
  * data-chat-font-size sowie Chat- und Sprach-Agent.
  * Die erste Nachricht ist die Begrüßung des Retell-Agenten.
- * Nicht dabei, weil Retell es nicht kann: Hell/Dunkel, Position links.
+ * Hell/Dunkel kann Retell selbst nicht: das macht unsere Farbschicht in
+ * embed/chat.js (data-design="dark"). Position links gibt es nicht.
  * Alles läuft lokal im Browser, es wird nichts an Retell übertragen.
  */
 (function () {
@@ -21,12 +22,24 @@
   var upload = null;
   var popTimer = null, popKey = '';
 
-  // Vorlagen-Icons als weißes SVG-Logo (so würden wir sie als data-logo-url hinterlegen)
-  function iconLogo(key) {
+  // Vorlagen-Icons als SVG-Logo, so wie wir sie als data-logo-url (Kopf: Icon + Name)
+  // und data-fab-icon-url (Button: nur Icon) hinterlegen würden.
+  function escXml(t) { return String(t).replace(/[&<>"']/g, function (c) { return '&#' + c.charCodeAt(0) + ';'; }); }
+  function iconSvg(key) {
     var svg = form.querySelector('.cfg-icons input[value="' + key + '"] + span svg');
-    if (!svg) return null;
-    var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">' + svg.innerHTML + '</svg>';
-    return 'data:image/svg+xml,' + encodeURIComponent(s);
+    return svg ? svg.innerHTML : '';
+  }
+  function circle(key, color) {
+    return '<circle cx="20" cy="20" r="20" fill="' + color + '"/><g transform="translate(9 9) scale(.9167)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + iconSvg(key) + '</g>';
+  }
+  function dataSvg(s) { return 'data:image/svg+xml,' + encodeURIComponent(s); }
+  function iconLogo(key, color, name, dark) {
+    var w = 52 + Math.ceil(name.length * 9.6);
+    return dataSvg('<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="40" viewBox="0 0 ' + w + ' 40">' + circle(key, color) +
+      '<text x="52" y="26" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif" font-size="17" font-weight="600" fill="' + (dark ? '#e7eaf0' : '#12203b') + '">' + escXml(name) + '</text></svg>');
+  }
+  function iconFab(key, color) {
+    return dataSvg('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">' + circle(key, color) + '</svg>');
   }
   function luminance(h) {
     var c = [1, 3, 5].map(function (i) {
@@ -40,11 +53,16 @@
   function state() {
     var c = radio('color');
     var logo = radio('logo');
+    var color = (c === 'custom' ? $('cfg-custom').value : c).toUpperCase();
+    var name = $('cfg-bot').value.trim() || DEF.name;
+    var dark = radio('design') === 'dark';
     return {
-      color: (c === 'custom' ? $('cfg-custom').value : c).toUpperCase(),
+      color: color,
+      dark: dark,
       logo: logo,
-      logoSrc: logo === 'upload' ? upload : iconLogo(logo),
-      name: $('cfg-bot').value.trim() || DEF.name,
+      logoSrc: logo === 'upload' ? upload : iconLogo(logo, color, name, dark),
+      fabSrc: logo === 'upload' ? upload : iconFab(logo, color),
+      name: name,
       fab: $('cfg-fab').value.trim(),
       greet: $('cfg-greet').value.trim() || DEF.greet,
       popupOn: $('cfg-popup-on').checked,
@@ -61,6 +79,7 @@
     pv.style.setProperty('--theme', s.color);
     pv.style.setProperty('--accent', s.color);
     pv.style.setProperty('--fs', SIZES[s.size] || SIZES['default']);
+    pv.classList.toggle('dark', s.dark);
     form.style.setProperty('--pick', s.color);
     form.querySelector('.cfg-custom span').style.setProperty('--c', $('cfg-custom').value);
 
@@ -73,7 +92,7 @@
     var logo = $('pv-logo'), fabLogo = $('pv-fab-logo');
     logo.hidden = fabLogo.hidden = !s.logoSrc;
     $('pv-fab-icon').style.display = s.logoSrc ? 'none' : '';
-    if (s.logoSrc) { logo.src = s.logoSrc; fabLogo.src = s.logoSrc; }
+    if (s.logoSrc) { logo.src = s.logoSrc; fabLogo.src = s.fabSrc; }
     $('cfg-logo-hint').hidden = s.logo !== 'upload';
 
     $('cfg-contrast').hidden = luminance(s.color) < 0.45;
@@ -138,6 +157,7 @@
   $('cfg-reset').addEventListener('click', function () {
     form.querySelector('input[name="color"]').checked = true;
     form.querySelector('input[name="logo"][value="home"]').checked = true;
+    form.querySelector('input[name="design"][value="light"]').checked = true;
     form.querySelector('input[name="size"][value="default"]').checked = true;
     form.querySelector('input[name="mode"][value="chat"]').checked = true;
     $('cfg-bot').value = '';
@@ -156,6 +176,7 @@
     return [
       'Name: ' + s.name,
       'Farbe: ' + s.color,
+      'Design: ' + (s.dark ? 'Dunkel' : 'Hell'),
       'Logo: ' + (s.logo === 'upload' ? 'eigenes (wird per E-Mail nachgereicht)' : 'Icon ' + ICON_LABEL[s.logo]),
       'Button-Text: ' + (s.fab || '(Standard)'),
       'Erste Nachricht: ' + s.greet,

@@ -132,23 +132,31 @@
             <p class="cfg-warn" id="cfg-contrast" hidden>Diese Farbe ist sehr hell. Weiße Schrift darauf ist schlecht lesbar, wählen Sie lieber einen dunkleren Ton.</p>
           </div>
 
-          <div class="cfg-row">
+          <div class="cfg-row cfg-row-2">
             <div class="cfg-block">
-              <span class="cfg-label" id="cfg-logo-l">Logo</span>
-              <div class="cfg-icons" role="radiogroup" aria-labelledby="cfg-logo-l">
-                <label title="Haus"><input type="radio" name="logo" value="home" checked><span><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></svg></span><em>Haus</em></label>
-                <label title="Friseur"><input type="radio" name="logo" value="scissors"><span><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5L20 18M8.5 16.5L20 6"/></svg></span><em>Schere</em></label>
-                <label title="Gastronomie"><input type="radio" name="logo" value="food"><span><svg viewBox="0 0 24 24"><path d="M6 3v7a2 2 0 002 2v9M10 3v7a2 2 0 01-2 2M8 3v6M17 21V3c-2 1-3 4-3 8h3"/></svg></span><em>Besteck</em></label>
-                <label title="Shop"><input type="radio" name="logo" value="shop"><span><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg></span><em>Tasche</em></label>
-                <label title="Eigenes Logo hochladen" class="cfg-upload"><input type="radio" name="logo" value="upload"><span><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg></span><em>Eigenes</em></label>
+              <span class="cfg-label" id="cfg-design-l">Design</span>
+              <div class="cfg-seg cfg-pill" role="radiogroup" aria-labelledby="cfg-design-l">
+                <label><input type="radio" name="design" value="light" checked><span>Hell</span></label>
+                <label><input type="radio" name="design" value="dark"><span>Dunkel</span></label>
               </div>
-              <input type="file" id="cfg-logo" accept="image/png,image/jpeg,image/svg+xml,image/webp" hidden>
-              <small class="cfg-hint" id="cfg-logo-hint" hidden>Ihr Logo bleibt in Ihrem Browser und wird nicht hochgeladen.</small>
             </div>
             <div class="cfg-block field">
               <label class="cfg-label" for="cfg-bot">Name</label>
-              <input id="cfg-bot" maxlength="30" placeholder="Ihr Assistent" value="">
+              <input id="cfg-bot" maxlength="24" placeholder="Ihr Assistent" value="">
             </div>
+          </div>
+
+          <div class="cfg-block">
+            <span class="cfg-label" id="cfg-logo-l">Logo</span>
+            <div class="cfg-icons" role="radiogroup" aria-labelledby="cfg-logo-l">
+              <label title="Haus"><input type="radio" name="logo" value="home" checked><span><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></svg></span><em>Haus</em></label>
+              <label title="Friseur"><input type="radio" name="logo" value="scissors"><span><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5L20 18M8.5 16.5L20 6"/></svg></span><em>Schere</em></label>
+              <label title="Gastronomie"><input type="radio" name="logo" value="food"><span><svg viewBox="0 0 24 24"><path d="M6 3v7a2 2 0 002 2v9M10 3v7a2 2 0 01-2 2M8 3v6M17 21V3c-2 1-3 4-3 8h3"/></svg></span><em>Besteck</em></label>
+              <label title="Shop"><input type="radio" name="logo" value="shop"><span><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg></span><em>Tasche</em></label>
+              <label title="Eigenes Logo hochladen" class="cfg-upload"><input type="radio" name="logo" value="upload"><span><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg></span><em>Eigenes</em></label>
+            </div>
+            <input type="file" id="cfg-logo" accept="image/png,image/jpeg,image/svg+xml,image/webp" hidden>
+            <small class="cfg-hint" id="cfg-logo-hint" hidden>Ihr Logo bleibt in Ihrem Browser und wird nicht hochgeladen.</small>
           </div>
 
           <details class="cfg-more">
@@ -219,7 +227,7 @@
           </div>
         </div>
       </div>
-      <p class="cfg-note">Vereinfachte Vorschau. Das fertige Widget kann im Detail leicht abweichen. Nicht möglich sind zum Beispiel ein Dunkelmodus, eine Platzierung links, eigene Schriftarten oder getrennte Farben für einzelne Elemente.</p>
+      <p class="cfg-note">Vereinfachte Vorschau. Das fertige Widget kann im Detail leicht abweichen. Nicht möglich sind zum Beispiel eine Platzierung links, eigene Schriftarten oder ein Online-Status im Chatfenster.</p>
     </div>
   </section>
 

@@ -8,6 +8,10 @@
  * <script src="https://dialopt.de/embed/chat.js" defer
  *   data-public-key="public_key_…" data-agent-id="agent_…"
  *   data-company="Muster GmbH" data-privacy-url="/datenschutz#ki-assistent"></script>
+ *
+ * Optional: data-design="dark" (Dunkelmodus, kommt von uns, nicht von Retell),
+ * data-fab-icon-url, data-chat-font-size (default|large|extra-large),
+ * data-popup-message und data-popup-time (Sekunden).
  */
 (function () {
   'use strict';
@@ -29,6 +33,11 @@
     privacyUrl: opt('privacy-url', ''),
     position: opt('position', 'right') === 'left' ? 'left' : 'right',
     logoUrl: opt('logo-url', null),
+    fabIconUrl: opt('fab-icon-url', null),
+    fontSize: opt('chat-font-size', null),
+    popupMessage: opt('popup-message', null),
+    popupTime: opt('popup-time', null),
+    dark: opt('design', 'light') === 'dark',
     whiteLabel: opt('white-label', null)
   };
   cfg.title = cfg.title || cfg.botName;
@@ -56,10 +65,14 @@
       'data-fab-text': cfg.buttonText,
       'data-theme-color': cfg.themeColor,
       'data-component-color': cfg.color,
-      'data-show-ai-popup': 'false',
+      'data-show-ai-popup': cfg.popupMessage ? 'true' : 'false',
       'data-auto-open': open ? 'true' : 'false'
     };
     if (cfg.logoUrl) a['data-logo-url'] = cfg.logoUrl;
+    if (cfg.fabIconUrl) a['data-fab-icon-url'] = cfg.fabIconUrl;
+    if (cfg.fontSize) a['data-chat-font-size'] = cfg.fontSize;
+    if (cfg.popupMessage) a['data-popup-message'] = cfg.popupMessage;
+    if (cfg.popupTime) a['data-show-ai-popup-time'] = cfg.popupTime;
     if (cfg.whiteLabel) a['data-white-label'] = cfg.whiteLabel;
     Object.keys(a).forEach(function (k) { s.setAttribute(k, a[k]); });
     document.body.appendChild(s);
@@ -83,6 +96,27 @@
       '[class*="_agent_"]{background:color-mix(in srgb,' + c + ' 10%,#fff)!important}' +
       '[class*="_user_"]{background:' + c + '!important;color:#fff!important}';
   }
+  // Dunkelmodus: Retell hat keinen, deshalb überschreiben wir die hellen Flächen
+  // mit Rauchgrau. Klassennamen geprüft gegen retell-widget-v2.js (Stand 11/2026).
+  function darkCss() {
+    var c = cfg.color, bg = '#161b26', s1 = '#1f2633', s2 = '#2a3242', bd = '#333c4d', tx = '#e7eaf0', mu = '#9aa3b2';
+    function r(sel, body) { return sel.split(',').map(function (k) { return '[class*="_' + k + '_"]'; }).join(',') + '{' + body + '}'; }
+    return r('innerShell,messages,inputRow,conversationFooter', 'background:' + bg + '!important') +
+      r('header', 'background:color-mix(in srgb,' + c + ' 22%,' + bg + ')!important;border-bottom-color:' + s2 + '!important') +
+      r('closeButton,navButton,modeButton,muteButton,emptyIcon', 'background:' + s2 + '!important;color:#c9d0db!important') +
+      r('closeButton', 'color:#c9d0db!important') +
+      r('title,brandText,brandTitle,headerBrand,headerLogo,chooserTitle,logo,historyPreview,feedbackTitle,content,countryOptionName', 'color:' + tx + '!important') +
+      r('optionCopy', 'color:' + tx + '!important') +
+      r('subtitle,chooserSubtitle,privacyLabel,closeBtn', 'color:' + mu + '!important') +
+      r('agent,typingBubble', 'background:#232b39!important;color:' + tx + '!important') +
+      r('inputShell,bubble,optionCard,countryButton,countryPopover', 'background:' + s1 + '!important;border-color:' + bd + '!important;color:' + tx + '!important') +
+      '[class*="_inputShell_"] input,[class*="_inputShell_"] textarea,[class*="_input_"]{color:' + tx + '!important;background:transparent!important}' +
+      r('optionCardOverlay,modeButtonOverlay', 'background:#161b266b!important') +
+      r('historyItem', 'border-color:' + s2 + '!important') +
+      '[class*="_agent_"] a{color:#9cc2ff!important}' +
+      // Ohne eigenes Logo zeigt Retell sein dunkles Logo: im Dunkelmodus aufhellen
+      (cfg.logoUrl ? '' : 'img[class*="_chatHeader_"],[class*="_headerLogo_"] img,[class*="_headerBrand_"] > svg{filter:brightness(0) invert(.92)}');
+  }
   function fitRetell() {
     var tries = 0;
     var t = setInterval(function () {
@@ -93,7 +127,7 @@
         if (h.shadowRoot && !h.shadowRoot.querySelector('style[data-dialopt-fit]')) {
           var st = document.createElement('style');
           st.setAttribute('data-dialopt-fit', '');
-          st.textContent = FIT_CSS + tintCss();
+          st.textContent = FIT_CSS + tintCss() + (cfg.dark ? darkCss() : '');
           h.shadowRoot.appendChild(st);
           clearInterval(t);
         }
@@ -120,6 +154,7 @@
       '.fab{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:0;border-radius:999px;background:' + esc(cfg.themeColor) + ';color:#fff;font-weight:600;font-size:15px;line-height:1;font-family:inherit;cursor:pointer;box-shadow:0 2px 4px rgba(6,14,26,.12),0 12px 28px -10px rgba(6,14,26,.45);transition:filter .2s,transform .2s}' +
       '.fab:hover{filter:brightness(1.25)}.fab:active{transform:translateY(1px)}' +
       '.fab svg{width:22px;height:22px;flex:none}' +
+      (cfg.dark ? '.card{background:#161b26!important;border-color:#2a3242!important;color:#e7eaf0}.card p{color:#9aa3b2!important}.x{color:#9aa3b2!important}.x:hover{background:#2a3242!important;color:#fff!important}.pl{color:#9aa3b2!important}.t{color:#e7eaf0}' : '') +
       '.card{position:relative;width:min(340px,calc(100vw - 40px));background:#fff;border:1px solid #d9e1ea;border-radius:12px;padding:22px 22px 18px;box-shadow:0 2px 4px rgba(6,14,26,.06),0 20px 44px -16px rgba(6,14,26,.35)}' +
       '.card[hidden]{display:none}' +
       '.t{font-weight:600;font-size:16px;margin:0 30px 8px 0}' +
