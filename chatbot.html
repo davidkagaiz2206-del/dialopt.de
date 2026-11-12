@@ -46,7 +46,7 @@
         <li><a href="#how-it-works">So funktioniert's</a></li>
         <li><a href="#pricing">Preise</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a class="btn btn-primary" href="#contact">Demo buchen</a></li>
+        <li><a class="btn btn-primary" href="#contact" data-intent="demo">Demo buchen</a></li>
       </ul>
     </nav>
   </div>
@@ -59,7 +59,7 @@
         <h1>Antworten für Ihre Kunden. <em>Entlastung für Ihr Team.</em></h1>
         <p class="lead">Dialopt ist ein KI-Chatbot für Ihre Website. Er beantwortet häufige Kundenfragen, hilft Besuchern bei der Orientierung und unterstützt Sie dabei, Anfragen zu erfassen — damit sich Ihr Team auf die Fälle konzentrieren kann, die persönliche Betreuung brauchen.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Demo anfragen <svg><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-primary" href="#contact" data-intent="demo">Demo anfragen <svg><use href="#i-arrow"/></svg></a>
           <a class="link-arrow" href="#problem">Mehr erfahren <svg><use href="#i-arrow"/></svg></a>
         </div>
         <p class="hero-note">Sie gelangen zu unserem Kontaktformular — wir melden uns persönlich bei Ihnen.</p>
@@ -99,7 +99,7 @@
           <li><svg><use href="#i-check"/></svg>Mit Ihrem Logo und Ihren Farben eingebunden</li>
           <li><svg><use href="#i-check"/></svg>Einbindung auf Ihrer Website</li>
         </ul>
-        <a class="btn btn-primary" href="#contact">Demo anfragen</a>
+        <a class="btn btn-primary" href="#contact" data-intent="demo">Demo anfragen</a>
       </div>
       <dl class="spec">
         <div><dt>Rund um die Uhr erreichbar</dt><dd>Der Chatbot ist durchgehend auf Ihrer Website aktiv — auch nachts und am Wochenende, wenn niemand aus Ihrem Team erreichbar ist.</dd></div>
@@ -214,7 +214,7 @@
         <li><div class="num">2</div><h3>Aktivieren</h3><p>Der Chatbot wird in Ihre Website eingebunden und ist sofort aktiv — bereit, Fragen Ihrer Besucher in Ihrem Namen zu beantworten.</p></li>
         <li><div class="num">3</div><h3>Fertig</h3><p>Dialopt ist rund um die Uhr auf Ihrer Website aktiv. Inhalte, Begrüßung und Design können Sie jederzeit anpassen lassen.</p></li>
       </ol>
-      <div class="steps-cta"><a class="btn btn-primary" href="#contact">Jetzt starten</a></div>
+      <div class="steps-cta"><a class="btn btn-primary" href="#contact" data-intent="test">Jetzt starten</a></div>
     </div>
   </section>
 
@@ -247,7 +247,7 @@
             <li><svg><use href="#i-check"/></svg><span>Begrüßungsnachricht</span></li>
             <li><svg><use href="#i-check"/></svg><span>reCAPTCHA-Schutz</span></li>
           </ul>
-          <a class="btn btn-ghost" href="#contact">Demo anfragen</a>
+          <a class="btn btn-ghost" href="#contact" data-intent="demo">Demo anfragen</a>
         </article>
         <article class="price featured">
           <span class="flag">Beliebteste Wahl</span>
@@ -269,7 +269,7 @@
             <li><svg><use href="#i-check"/></svg><span>Dynamische Unternehmensinformationen</span></li>
             <li><svg><use href="#i-check"/></svg><span>reCAPTCHA-Schutz</span></li>
           </ul>
-          <a class="btn btn-primary" href="#contact">Demo anfragen</a>
+          <a class="btn btn-primary" href="#contact" data-intent="demo">Demo anfragen</a>
         </article>
         <article class="price">
           <h3>Premium</h3>
@@ -291,7 +291,7 @@
             <li><svg><use href="#i-check"/></svg><span>Priorisierter Support</span></li>
             <li><svg><use href="#i-check"/></svg><span>reCAPTCHA-Schutz</span></li>
           </ul>
-          <a class="btn btn-ghost" href="#contact">Demo anfragen</a>
+          <a class="btn btn-ghost" href="#contact" data-intent="demo">Demo anfragen</a>
         </article>
       </div>
       <p class="billing-note">Beim Jahresabo zahlen Sie 12 Monate im Voraus. Das Abo verlängert sich automatisch um ein weiteres Jahr. Sie können jederzeit kündigen, die Kündigung wird zum Ende des bezahlten Jahres wirksam. Eine anteilige Rückerstattung erfolgt nicht.</p>
@@ -300,7 +300,7 @@
           <strong>14 Tage kostenlos testen</strong>
           <p>Für alle Pakete gilt eine 14-tägige kostenlose Testphase. Zusätzliche Nutzung über das inkludierte Kontingent hinaus wird separat geregelt.</p>
         </div>
-        <a class="btn btn-primary" href="#contact">Demo anfragen <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-primary" href="#contact" data-intent="demo">Demo anfragen <svg><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </section>
@@ -344,6 +344,13 @@
         </div>
         <form id="contact-form" action="https://formspree.io/f/mwvyondj" method="POST" novalidate>
           <div id="form-error" class="form-error" role="alert">Bitte füllen Sie alle Pflichtfelder aus.</div>
+          <fieldset class="intent">
+            <legend>Was möchten Sie?</legend>
+            <div class="intent-opts">
+              <label class="intent-opt"><input type="radio" name="anliegen" value="14 Tage kostenlos testen" data-key="test" data-submit="Kostenlos testen" checked><span><strong>14 Tage kostenlos testen</strong><small>Unverbindlich in Ihrem Betrieb, ohne Kreditkarte.</small></span></label>
+              <label class="intent-opt"><input type="radio" name="anliegen" value="Demo buchen" data-key="demo" data-submit="Demo anfragen"><span><strong>Demo buchen</strong><small>Wir zeigen Ihnen Dialopt live und beantworten Ihre Fragen.</small></span></label>
+            </div>
+          </fieldset>
           <div class="form-row">
             <div class="field"><label for="fname">Name</label><input type="text" id="fname" name="name" placeholder="Max Mustermann" autocomplete="name" required></div>
             <div class="field"><label for="fcompany">Unternehmen</label><input type="text" id="fcompany" name="company" placeholder="Muster GmbH" autocomplete="organization" required></div>
@@ -357,7 +364,7 @@
             <svg><use href="#i-check"/></svg>
             <div><strong>Ihre Chatbot-Konfiguration wird mitgeschickt.</strong> <span id="cfg-attached-logo" hidden>Ihr Logo senden Sie uns bitte per E-Mail.</span> <button type="button" class="cfg-link" id="cfg-detach">Nicht mitschicken</button></div>
           </div>
-          <button type="submit" class="btn btn-primary"><svg><use href="#i-send"/></svg>Demo anfragen</button>
+          <button type="submit" class="btn btn-primary"><svg><use href="#i-send"/></svg><span class="submit-label">Kostenlos testen</span></button>
           <p class="form-privacy">Wir behandeln Ihre Daten vertraulich. Lesen Sie unsere <a href="/datenschutz">Datenschutzerklärung</a>.</p>
         </form>
       </div>
