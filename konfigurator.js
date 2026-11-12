@@ -1,12 +1,12 @@
-/* Dialopt – Chatbot-Konfigurator
- * Zeigt nur Optionen, die das Retell-Widget (retell-widget-v2.js) wirklich kennt:
- * data-color, data-bot-name, data-title, data-logo-url, data-fab-text,
- * data-popup-message, data-show-ai-popup, data-show-ai-popup-time,
- * data-chat-font-size sowie Chat- und Sprach-Agent.
- * Die erste Nachricht ist die Begrüßung des Retell-Agenten.
- * Hell/Dunkel kann Retell selbst nicht: das macht unsere Farbschicht in
- * embed/chat.js (data-design="dark"). Position links gibt es nicht.
- * Alles läuft lokal im Browser, es wird nichts an Retell übertragen.
+/* Dialopt – Chatbot-Konfigurator ("So, wie Sie wollen.")
+ * Die Szene (Hintergrund, Glühen, Panel) folgt Farbe und Hell/Dunkel.
+ * Im Chat-Widget selbst nur, was wirklich umsetzbar ist:
+ *  - Retell: data-color, data-bot-name, data-logo-url (Icon + Name), data-fab-icon-url,
+ *    data-fab-text, data-popup-message, data-show-ai-popup-time, data-chat-font-size,
+ *    Chat- und Sprach-Agent, Begrüßung des Agenten
+ *  - unsere Farbschicht in embed/chat.js: Tönung und Dunkelmodus (data-design="dark")
+ * Nicht dabei: Position links, Online-Status (kann Retell nicht).
+ * Alles läuft lokal im Browser, es wird nichts übertragen.
  */
 (function () {
   'use strict';
@@ -14,33 +14,17 @@
   if (!form) return;
 
   function $(id) { return document.getElementById(id); }
+  var scene = $('konfigurator');
   var pv = $('pv');
-  var DEF = { name: 'Ihr Assistent', fab: 'Haben Sie Fragen?', greet: 'Hallo! Wie kann ich Ihnen helfen?', popup: 'Fragen? Ich helfe Ihnen gerne weiter.', delay: 3 };
+  var DEF = { fab: 'Haben Sie Fragen?', greet: 'Hallo! Wie kann ich Ihnen helfen?', popup: 'Fragen? Ich helfe Ihnen gerne weiter.', delay: 3 };
   var SIZES = { 'default': '14px', 'large': '16px', 'extra-large': '18px' };
   var SIZE_LABEL = { 'default': 'Normal', 'large': 'Groß', 'extra-large': 'Sehr groß' };
   var ICON_LABEL = { home: 'Haus', scissors: 'Schere', food: 'Besteck', shop: 'Tasche' };
-  var upload = null;
+  var upload = null, lastLogo = 'home';
   var popTimer = null, popKey = '';
 
-  // Vorlagen-Icons als SVG-Logo, so wie wir sie als data-logo-url (Kopf: Icon + Name)
-  // und data-fab-icon-url (Button: nur Icon) hinterlegen würden.
-  function escXml(t) { return String(t).replace(/[&<>"']/g, function (c) { return '&#' + c.charCodeAt(0) + ';'; }); }
-  function iconSvg(key) {
-    var svg = form.querySelector('.cfg-icons input[value="' + key + '"] + span svg');
-    return svg ? svg.innerHTML : '';
-  }
-  function circle(key, color) {
-    return '<circle cx="20" cy="20" r="20" fill="' + color + '"/><g transform="translate(9 9) scale(.9167)" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + iconSvg(key) + '</g>';
-  }
-  function dataSvg(s) { return 'data:image/svg+xml,' + encodeURIComponent(s); }
-  function iconLogo(key, color, name, dark) {
-    var w = 52 + Math.ceil(name.length * 9.6);
-    return dataSvg('<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="40" viewBox="0 0 ' + w + ' 40">' + circle(key, color) +
-      '<text x="52" y="26" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif" font-size="17" font-weight="600" fill="' + (dark ? '#e7eaf0' : '#12203b') + '">' + escXml(name) + '</text></svg>');
-  }
-  function iconFab(key, color) {
-    return dataSvg('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">' + circle(key, color) + '</svg>');
-  }
+  function radio(name) { var r = form.querySelector('input[name="' + name + '"]:checked'); return r ? r.value : ''; }
+  function iconPath(key) { var svg = form.querySelector('.cfg-icons input[value="' + key + '"] + span svg'); return svg ? svg.innerHTML : ''; }
   function luminance(h) {
     var c = [1, 3, 5].map(function (i) {
       var x = parseInt(h.substr(i, 2), 16) / 255;
@@ -48,21 +32,16 @@
     });
     return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
   }
-  function radio(name) { var r = form.querySelector('input[name="' + name + '"]:checked'); return r ? r.value : ''; }
 
   function state() {
     var c = radio('color');
-    var logo = radio('logo');
-    var color = (c === 'custom' ? $('cfg-custom').value : c).toUpperCase();
-    var name = $('cfg-bot').value.trim() || DEF.name;
-    var dark = radio('design') === 'dark';
+    var n = $('cfg-bot').value.trim();
     return {
-      color: color,
-      dark: dark,
-      logo: logo,
-      logoSrc: logo === 'upload' ? upload : iconLogo(logo, color, name, dark),
-      fabSrc: logo === 'upload' ? upload : iconFab(logo, color),
-      name: name,
+      color: (c === 'custom' ? $('cfg-custom').value : c).toUpperCase(),
+      dark: radio('design') === 'dark',
+      name: n,
+      title: n ? n + ' Assistent' : 'Ihr Assistent',
+      logo: radio('logo'),
       fab: $('cfg-fab').value.trim(),
       greet: $('cfg-greet').value.trim() || DEF.greet,
       popupOn: $('cfg-popup-on').checked,
@@ -75,26 +54,30 @@
 
   function render() {
     var s = state();
-    // data-color setzt bei Retell Haupt- und Akzentfarbe zugleich
-    pv.style.setProperty('--theme', s.color);
-    pv.style.setProperty('--accent', s.color);
+    scene.style.setProperty('--c', s.color);
+    scene.setAttribute('data-design', s.dark ? 'dark' : 'light');
     pv.style.setProperty('--fs', SIZES[s.size] || SIZES['default']);
-    pv.classList.toggle('dark', s.dark);
-    form.style.setProperty('--pick', s.color);
-    form.querySelector('.cfg-custom span').style.setProperty('--c', $('cfg-custom').value);
+    form.querySelector('.cfg-custom').style.setProperty('--c', $('cfg-custom').value);
 
-    $('pv-title').textContent = s.name;
+    // Kopf: Icon im Farbkreis + Name, oder nur das eigene Logo (wie bei Retell)
+    var custom = s.logo === 'upload' && upload;
+    var icon = iconPath(s.logo === 'upload' ? lastLogo : s.logo);
+    pv.querySelector('.pv-head').classList.toggle('custom', !!custom);
+    $('pv-avatar-img').hidden = !custom;
+    if (custom) $('pv-avatar-img').src = upload;
+    $('pv-avatar-icon').innerHTML = icon;
+    $('pv-title').textContent = s.title;
+
+    var fabIc = $('pv-fab-ic');
+    fabIc.textContent = '';
+    if (custom) { var im = document.createElement('img'); im.alt = ''; im.src = upload; fabIc.appendChild(im); }
+    else fabIc.innerHTML = '<svg viewBox="0 0 24 24">' + icon + '</svg>';
     $('pv-fab-text').textContent = s.fab || 'Need support?';
-    $('pv-pop-name').textContent = s.name;
+    $('pv-pop-name').textContent = s.title;
     $('pv-greet').textContent = s.greet;
     $('pv-tabs').hidden = s.mode !== 'both';
 
-    var logo = $('pv-logo'), fabLogo = $('pv-fab-logo');
-    logo.hidden = fabLogo.hidden = !s.logoSrc;
-    $('pv-fab-icon').style.display = s.logoSrc ? 'none' : '';
-    if (s.logoSrc) { logo.src = s.logoSrc; fabLogo.src = s.fabSrc; }
     $('cfg-logo-hint').hidden = s.logo !== 'upload';
-
     $('cfg-contrast').hidden = luminance(s.color) < 0.45;
     $('cfg-popup-fields').hidden = !s.popupOn;
     $('cfg-delay-out').textContent = s.delay;
@@ -103,12 +86,11 @@
     if (!$('fconfig').disabled) attach();
   }
 
-  // Popup erscheint wie bei Retell nur bei geschlossenem Fenster, nach der eingestellten Zeit.
   function schedulePopup(s) {
     var pop = $('pv-pop');
-    if (!s.popupOn || !s.popup || !$('pv-win').hidden) { clearTimeout(popTimer); pop.hidden = true; popKey = ''; return; }
+    if (!s.popupOn || !s.popup) { clearTimeout(popTimer); pop.hidden = true; popKey = ''; return; }
     $('pv-pop-text').textContent = s.popup;
-    var key = [s.popup, s.delay].join('|');
+    var key = s.popup + '|' + s.delay;
     if (key === popKey) return;
     popKey = key;
     clearTimeout(popTimer);
@@ -116,27 +98,19 @@
     popTimer = setTimeout(function () { pop.hidden = false; }, s.delay * 1000);
   }
 
-  function setOpen(open) {
-    $('pv-win').hidden = !open;
-    $('pv-fab').setAttribute('aria-expanded', open ? 'true' : 'false');
-    popKey = '';
-    if (open) { clearTimeout(popTimer); $('pv-pop').hidden = true; } else schedulePopup(state());
-  }
-  $('pv-fab').addEventListener('click', function () { setOpen($('pv-win').hidden); });
-  $('pv-close').addEventListener('click', function () { setOpen(false); $('pv-fab').focus(); });
-  $('pv-pop').addEventListener('click', function () { setOpen(true); });
-
-  // Eigene Farbe: Klick auf den Farbkreis wählt ihn aus und öffnet den Farbwähler
-  $('cfg-custom').addEventListener('input', function () { form.querySelector('input[name="color"][value="custom"]').checked = true; render(); });
-  $('cfg-custom').addEventListener('click', function () { form.querySelector('input[name="color"][value="custom"]').checked = true; render(); });
+  // Eigene Farbe
+  var customRadio = form.querySelector('input[name="color"][value="custom"]');
+  ['input', 'click'].forEach(function (ev) {
+    $('cfg-custom').addEventListener(ev, function () { customRadio.checked = true; render(); });
+  });
 
   // Eigenes Logo: nur lokal als Vorschau
   var uploadRadio = form.querySelector('input[name="logo"][value="upload"]');
-  var lastLogo = 'home';
   uploadRadio.addEventListener('click', function () { $('cfg-logo').click(); });
   form.querySelectorAll('input[name="logo"]').forEach(function (r) {
     r.addEventListener('change', function () { if (r.value !== 'upload') lastLogo = r.value; });
   });
+  function backToLast() { form.querySelector('input[name="logo"][value="' + lastLogo + '"]').checked = true; render(); }
   $('cfg-logo').addEventListener('change', function () {
     var f = this.files && this.files[0];
     if (!f) { if (!upload) backToLast(); return; }
@@ -145,25 +119,24 @@
     rd.onload = function () { upload = rd.result; uploadRadio.checked = true; render(); };
     rd.readAsDataURL(f);
   });
-  // Dialog abgebrochen, ohne dass es schon ein Logo gibt: vorherige Auswahl zurück
+  // Dateidialog abgebrochen, ohne dass es schon ein Logo gibt: vorherige Auswahl zurück
   window.addEventListener('focus', function () {
     setTimeout(function () { if (uploadRadio.checked && !upload) backToLast(); }, 400);
   });
-  function backToLast() { form.querySelector('input[name="logo"][value="' + lastLogo + '"]').checked = true; render(); }
 
   form.addEventListener('input', render);
   form.addEventListener('change', render);
 
   $('cfg-reset').addEventListener('click', function () {
-    form.querySelector('input[name="color"]').checked = true;
-    form.querySelector('input[name="logo"][value="home"]').checked = true;
+    form.querySelector('input[name="color"][value="#7C3AED"]').checked = true;
     form.querySelector('input[name="design"][value="light"]').checked = true;
+    form.querySelector('input[name="logo"][value="home"]').checked = true;
     form.querySelector('input[name="size"][value="default"]').checked = true;
     form.querySelector('input[name="mode"][value="chat"]').checked = true;
     $('cfg-bot').value = '';
     $('cfg-fab').value = DEF.fab;
     $('cfg-greet').value = DEF.greet;
-    $('cfg-popup-on').checked = true;
+    $('cfg-popup-on').checked = false;
     $('cfg-popup').value = DEF.popup;
     $('cfg-delay').value = DEF.delay;
     upload = null; lastLogo = 'home'; $('cfg-logo').value = '';
@@ -174,7 +147,7 @@
   function summary() {
     var s = state();
     return [
-      'Name: ' + s.name,
+      'Name: ' + s.title,
       'Farbe: ' + s.color,
       'Design: ' + (s.dark ? 'Dunkel' : 'Hell'),
       'Logo: ' + (s.logo === 'upload' ? 'eigenes (wird per E-Mail nachgereicht)' : 'Icon ' + ICON_LABEL[s.logo]),
@@ -203,7 +176,7 @@
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (es) {
       document.body.classList.toggle('cfg-in-view', es[0].isIntersecting);
-    }, { threshold: 0.15 }).observe(document.querySelector('.cfg-stage'));
+    }, { threshold: 0 }).observe(scene);
   }
 
   render();
